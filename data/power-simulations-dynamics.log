@@ -1,0 +1,346 @@
+┌ Debug: 2021-07-21T00:11:13.968 [21289:1]: System doesn't contain Dynamic Branches
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_inputs.jl:188
+┌ Debug: 2021-07-21T00:11:13.968 [21289:1]: generator-3-1
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-07-21T00:11:13.969 [21289:1]: generator-8-1
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-07-21T00:11:13.969 [21289:1]: generator-1-1
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-07-21T00:11:13.969 [21289:1]: generator-2-1
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-07-21T00:11:13.969 [21289:1]: generator-6-1
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-07-21T00:11:13.969 [21289:1]: GF_Battery-6
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-07-21T00:11:13.969 [21289:1]: Gf_Battery-3
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-07-21T00:11:13.969 [21289:1]: GF_Battery-3
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-07-21T00:11:13.969 [21289:1]: Gf_Battery-6
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Gf_Battery-8
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: GF_Battery-8
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries TGFixed
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/tg_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries PSSFixed
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/pss_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries ESAC1A)
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/avr_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries RoundRotorQuadratic
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/machine_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries SingleMass
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/shaft_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries TGFixed
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/tg_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries PSSFixed
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/pss_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries ESAC1A)
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/avr_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries RoundRotorQuadratic
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/machine_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries SingleMass
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/shaft_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries GasTG
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/tg_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries PSSFixed
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/pss_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries ESAC1A)
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/avr_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries RoundRotorQuadratic
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/machine_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries SingleMass
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/shaft_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries TGFixed
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/tg_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries PSSFixed
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/pss_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries ESAC1A)
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/avr_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries RoundRotorQuadratic
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/machine_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries SingleMass
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/shaft_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries TGFixed
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/tg_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries PSSFixed
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/pss_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries ESAC1A)
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/avr_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries RoundRotorQuadratic
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/machine_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries SingleMass
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/generator_models/shaft_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries FixedDCSource
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/DCside_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.970 [21289:1]: Using default mass matrix entries FixedFrequency
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/frequency_estimator_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.971 [21289:1]: Using default mass matrix entries OuterControl{VirtualInertia, ReactivePowerDroop}
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/outer_control_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.971 [21289:1]: Using default mass matrix entries VoltageModeControl
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/inner_control_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.971 [21289:1]: Using default mass matrix entries AverageConverter
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/converter_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.971 [21289:1]: Using default mass matrix entries LCLFilter
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/filter_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.971 [21289:1]: Using default mass matrix entries FixedDCSource
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/DCside_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.971 [21289:1]: Using default mass matrix entries KauraPLL
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/frequency_estimator_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.971 [21289:1]: Using default mass matrix entries OuterControl{ActivePowerDroop, ReactivePowerDroop}
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/outer_control_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.972 [21289:1]: Using default mass matrix entries VoltageModeControl
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/inner_control_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.972 [21289:1]: Using default mass matrix entries AverageConverter
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/converter_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.972 [21289:1]: Using default mass matrix entries LCLFilter
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/filter_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.972 [21289:1]: Using default mass matrix entries FixedDCSource
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/DCside_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.972 [21289:1]: Using default mass matrix entries FixedFrequency
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/frequency_estimator_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.972 [21289:1]: Using default mass matrix entries OuterControl{VirtualInertia, ReactivePowerDroop}
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/outer_control_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.972 [21289:1]: Using default mass matrix entries VoltageModeControl
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/inner_control_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.972 [21289:1]: Using default mass matrix entries AverageConverter
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/converter_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.972 [21289:1]: Using default mass matrix entries LCLFilter
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/filter_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.972 [21289:1]: Using default mass matrix entries FixedDCSource
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/DCside_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.972 [21289:1]: Using default mass matrix entries KauraPLL
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/frequency_estimator_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.973 [21289:1]: Using default mass matrix entries OuterControl{ActivePowerDroop, ReactivePowerDroop}
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/outer_control_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.973 [21289:1]: Using default mass matrix entries VoltageModeControl
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/inner_control_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.973 [21289:1]: Using default mass matrix entries AverageConverter
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/converter_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.973 [21289:1]: Using default mass matrix entries LCLFilter
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/filter_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.973 [21289:1]: Using default mass matrix entries FixedDCSource
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/DCside_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.973 [21289:1]: Using default mass matrix entries KauraPLL
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/frequency_estimator_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.973 [21289:1]: Using default mass matrix entries OuterControl{ActivePowerDroop, ReactivePowerDroop}
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/outer_control_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.973 [21289:1]: Using default mass matrix entries VoltageModeControl
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/inner_control_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.973 [21289:1]: Using default mass matrix entries AverageConverter
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/converter_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.973 [21289:1]: Using default mass matrix entries LCLFilter
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/filter_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.973 [21289:1]: Using default mass matrix entries FixedDCSource
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/DCside_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.973 [21289:1]: Using default mass matrix entries FixedFrequency
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/frequency_estimator_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.974 [21289:1]: Using default mass matrix entries OuterControl{VirtualInertia, ReactivePowerDroop}
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/outer_control_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.974 [21289:1]: Using default mass matrix entries VoltageModeControl
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/inner_control_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.974 [21289:1]: Using default mass matrix entries AverageConverter
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/converter_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.974 [21289:1]: Using default mass matrix entries LCLFilter
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/models/inverter_models/filter_models.jl:6
+┌ Debug: 2021-07-21T00:11:13.974 [21289:1]: Base.ImmutableDict(:bus_count => 14, :total_variables => 188, :first_dyn_branch_point => 0, :first_dyn_injection_pointer => 29, :branches_n_states => 0, :injection_n_states => 160)
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_inputs.jl:282
+┌ Debug: 2021-07-21T00:11:13.974 [21289:1]: Simulation Inputs Created
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation.jl:181
+┌ Info: 2021-07-21T00:11:13.974 [21289:1]: Initializing Simulation States
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation.jl:210
+┌ Debug: 2021-07-21T00:11:13.974 [21289:1]: Auxiliary Arrays created with Type Real
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_inputs.jl:127
+┌ Debug: 2021-07-21T00:11:13.974 [21289:1]: Start state intialization routine
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:197
+┌ Info: 2021-07-21T00:11:13.974 [21289:1]: Unit System changed to UnitSystem.SYSTEM_BASE = 0
+└ @ PowerSystems /home/ciaran/.julia/packages/PowerSystems/61h6O/src/base.jl:339
+┌ Info: 2021-07-21T00:11:13.974 [21289:1]: Validating connectivity with Goderya algorithm
+└ @ PowerSystems /home/ciaran/.julia/packages/PowerSystems/61h6O/src/utils/network_calculations/ybus_calculations.jl:296
+┌ Info: 2021-07-21T00:11:13.974 [21289:1]: The System has no islands
+└ @ PowerSystems /home/ciaran/.julia/packages/PowerSystems/61h6O/src/utils/network_calculations/ybus_calculations.jl:242
+┌ Info: 2021-07-21T00:11:13.975 [21289:1]: PowerFlow solve converged, the results have been stored in the system
+└ @ PowerSystems /home/ciaran/.julia/packages/PowerSystems/61h6O/src/utils/power_flow.jl:307
+┌ Info: 2021-07-21T00:11:13.976 [21289:1]: Unit System changed to UnitSystem.DEVICE_BASE = 1
+└ @ PowerSystems /home/ciaran/.julia/packages/PowerSystems/61h6O/src/base.jl:345
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: Updating Voltage guess
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:12
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: BUS 12
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0434428148317236
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.028614824270983788
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: BUS 04
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.022661898298608
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.040640379219412485
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: BUS 09
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0269324833650952
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.041137278675286104
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: BUS 02
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0399173095579668
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.013114468411640786
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: BUS 10
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.024767387717635
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.040908699066753325
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: BUS 03
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0077307710418966
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.06766604093121527
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: BUS 05
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0266306191330767
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.02921418821181757
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: BUS 11
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0383220598829
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.028677229373342866
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: BUS 13
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0368212395042378
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.030846648325159504
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: BUS 01
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.06
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = 0.0
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: BUS 07
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0457972831184315
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.002712176754492432
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: BUS 14
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0119815708399726
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.05438738497355064
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: BUS 08
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.076114132127044
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = 0.09153346184024319
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: BUS 06
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0599375375126416
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.011507239966109023
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: Updating Source internal voltages
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:26
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: Updating Dynamic Injection Component Initial Guess
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:46
+┌ Debug: 2021-07-21T00:11:13.976 [21289:1]: generator-3-1
+│   typeof(d) = ThermalStandard
+│   typeof(dynamic_device) = DynamicGenerator{RoundRotorQuadratic, SingleMass, ESAC1A, TGFixed, PSSFixed}
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:51
+┌ Debug: 2021-07-21T00:11:13.977 [21289:1]: generator-8-1
+│   typeof(d) = ThermalStandard
+│   typeof(dynamic_device) = DynamicGenerator{RoundRotorQuadratic, SingleMass, ESAC1A, TGFixed, PSSFixed}
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:51
+┌ Debug: 2021-07-21T00:11:13.978 [21289:1]: generator-1-1
+│   typeof(d) = ThermalStandard
+│   typeof(dynamic_device) = DynamicGenerator{RoundRotorQuadratic, SingleMass, ESAC1A, GasTG, PSSFixed}
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:51
+┌ Debug: 2021-07-21T00:11:13.978 [21289:1]: generator-2-1
+│   typeof(d) = ThermalStandard
+│   typeof(dynamic_device) = DynamicGenerator{RoundRotorQuadratic, SingleMass, ESAC1A, TGFixed, PSSFixed}
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:51
+┌ Debug: 2021-07-21T00:11:13.979 [21289:1]: generator-6-1
+│   typeof(d) = ThermalStandard
+│   typeof(dynamic_device) = DynamicGenerator{RoundRotorQuadratic, SingleMass, ESAC1A, TGFixed, PSSFixed}
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:51
+┌ Debug: 2021-07-21T00:11:13.980 [21289:1]: GF_Battery-6
+│   typeof(d) = GenericBattery
+│   typeof(dynamic_device) = DynamicInverter{AverageConverter, OuterControl{VirtualInertia, ReactivePowerDroop}, VoltageModeControl, FixedDCSource, FixedFrequency, LCLFilter}
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:51
+┌ Debug: 2021-07-21T00:11:13.981 [21289:1]: Gf_Battery-3
+│   typeof(d) = GenericBattery
+│   typeof(dynamic_device) = DynamicInverter{AverageConverter, OuterControl{ActivePowerDroop, ReactivePowerDroop}, VoltageModeControl, FixedDCSource, KauraPLL, LCLFilter}
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:51
+┌ Debug: 2021-07-21T00:11:13.982 [21289:1]: GF_Battery-3
+│   typeof(d) = GenericBattery
+│   typeof(dynamic_device) = DynamicInverter{AverageConverter, OuterControl{VirtualInertia, ReactivePowerDroop}, VoltageModeControl, FixedDCSource, FixedFrequency, LCLFilter}
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:51
+┌ Debug: 2021-07-21T00:11:13.984 [21289:1]: Gf_Battery-6
+│   typeof(d) = GenericBattery
+│   typeof(dynamic_device) = DynamicInverter{AverageConverter, OuterControl{ActivePowerDroop, ReactivePowerDroop}, VoltageModeControl, FixedDCSource, KauraPLL, LCLFilter}
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:51
+┌ Debug: 2021-07-21T00:11:13.985 [21289:1]: Gf_Battery-8
+│   typeof(d) = GenericBattery
+│   typeof(dynamic_device) = DynamicInverter{AverageConverter, OuterControl{ActivePowerDroop, ReactivePowerDroop}, VoltageModeControl, FixedDCSource, KauraPLL, LCLFilter}
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:51
+┌ Debug: 2021-07-21T00:11:13.987 [21289:1]: GF_Battery-8
+│   typeof(d) = GenericBattery
+│   typeof(dynamic_device) = DynamicInverter{AverageConverter, OuterControl{VirtualInertia, ReactivePowerDroop}, VoltageModeControl, FixedDCSource, FixedFrequency, LCLFilter}
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:51
+┌ Debug: 2021-07-21T00:11:13.988 [21289:1]: No Dynamic Branches in the system
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:205
+┌ Debug: 2021-07-21T00:11:13.988 [21289:1]: Start NLSolve System Run
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:166
+┌ Debug: 2021-07-21T00:11:13.988 [21289:1]: [1.06, 1.0399173095579668, 1.0077307710418966, 1.022661898298608, 1.0266306191330767, 1.0599375375126416, 1.0457972831184315, 1.076114132127044, 1.0269324833650952, 1.024767387717635, 1.0383220598829, 1.0434428148317236, 1.0368212395042378, 1.0119815708399726, 0.0, -0.013114468411640786, -0.06766604093121527, -0.040640379219412485, -0.02921418821181757, -0.011507239966109023, -0.002712176754492432, 0.09153346184024319, -0.041137278675286104, -0.040908699066753325, -0.028677229373342866, -0.028614824270983788, -0.030846648325159504, -0.05438738497355064, 1.0014147480408113, 0.1603982865705793, 0.9735982141997493, 0.26871270402989744, 0.20224898033435929, 1.0, 1.01, 0.004830567828567562, 1.9419368155045476, 1.3971916376368596, -0.05825810446513643, 1.1090429883537953, 0.08767660406658764, 1.0714647338660783, 0.267083907532084, 0.36604922132216106, 1.0, 1.08, 0.00628450927642131, 2.5264358900186172, 1.8760863375783563, -0.07579307670055851, 1.1104975592817539, -0.01627782311499367, 1.094781149989892, 0.08248506270136888, 0.1262686334392753, 1.0, 1.06, 0.005936209239962262, 2.3864157748592008, 1.7649354915848057, -0.07159247324577601, 0.2700162222222222, 0.0, 0.0, 0.9821498369479849, 0.2549123507139815, 0.9521608302115518, 0.4183177660712588, 0.4013393652259219, 1.0, 1.04, 0.00465843487289101, 1.8727376373431197, 1.337696516247367, -0.05618212912029359, 1.0204292627862785, 0.15399869931657867, 0.9793785728348817, 0.43435748983345285, 0.4647306975378934, 1.0, 1.06, 0.005827741264220025, 2.342810558480412, 1.7298870355909561, -0.07028431675441237, 1.0, 0.15880841867905174, 0.7184620861526076, 0.0006299024281794938, -0.0008777824628166459, 0.082520071766894, -0.006601267567760227, 1.1786256175011345, -0.09272163742803188, 0.5529236785122427, -0.477396646069824, 1.1784574517203144, 0.09483502919348433, 0.5599414706725243, -0.5646024974965728, 0.011855568078365498, 0.04353527430124899, 0.4094577073593711, 0.00039193688913568593, -0.0005334667158143604, 0.07595245933372939, -0.004100005655475575, 1.0852419639510087, -0.0576931100807684, 1.0867744071285765, 0.0, 0.0, -0.009576247583776067, 0.3060502695770723, -0.2992874010281123, 1.0867245764479119, -0.010407061726243332, 0.305280147009327, -0.37970501968570497, 1.0, 0.04353527430124899, 0.4094577073593711, 0.00039193688913568593, -0.0005334667158143604, 0.07595245933372939, -0.004100005655475575, 1.0852419639510087, -0.0576931100807684, 0.3060502695770723, -0.2992874010281123, 1.0867245764479119, -0.010407061726243332, 0.305280147009327, -0.37970501968570497, 0.11249669813729897, 0.15880841867905174, 0.7184620861526076, 0.0006299024281794938, -0.0008777824628166459, 0.082520071766894, -0.006601267567760227, 1.1786256175011345, -0.09272163742803188, 1.1822671645094471, -1.232595164407831e-32, 1.6425841743174719e-34, 0.08030082228741892, 0.5529236785122427, -0.477396646069824, 1.1784574517203144, 0.09483502919348433, 0.5599414706725243, -0.5646024974965728, 0.15569704518691452, 0.18347059833201218, 1.0554476993151682, 0.0003903299482165215, -0.001165874142772802, 0.08742075825556563, -0.004178565504040639, 1.2492422391703408, -0.0574565683775077, 1.2505628427695847, 6.162975822039155e-33, -8.212920871587359e-35, 0.137509851904272, 0.4263272032500293, -0.6996008218221557, 1.2387580407539294, 0.17142327783377576, 0.4390125258097784, -0.7912689168372301, 1.0, 0.18347059833201218, 1.0554476993151682, 0.0003903299482165215, -0.001165874142772802, 0.08742075825556563, -0.004178565504040639, 1.2492422391703408, -0.0574565683775077, 0.4263272032500293, -0.6996008218221557, 1.2387580407539294, 0.17142327783377576, 0.4390125258097784, -0.7912689168372301]
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:167
+┌ Info: 2021-07-21T00:11:14.707 [21289:1]: Initialization succeeded with a tolerance of 1.0e-9 using solver trust_region. Saving solution.
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:151
+┌ Debug: 2021-07-21T00:11:14.707 [21289:1]: Write result to initial guess vector under condition converged = true
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_initialization.jl:177
+┌ Info: 2021-07-21T00:11:14.707 [21289:1]: Attaching Perturbations
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation.jl:186
+┌ Debug: 2021-07-21T00:11:14.707 [21289:1]: BranchTrip(1.0, "BUS 02-BUS 04-i_4")
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation.jl:197
+┌ Debug: 2021-07-21T00:11:14.707 [21289:1]: Auxiliary Arrays created with Type Float64
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation_inputs.jl:127
+┌ Info: 2021-07-21T00:11:14.707 [21289:1]: Simulations status = BUILT
+└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/MIQ9g/src/base/simulation.jl:242
