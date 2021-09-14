@@ -153,7 +153,7 @@ shaft_no_damping() = SingleMass(
     0.0,
 ) #D
 
-shaft_genrou() = SingleMass(H = 6.175, D = 0.05)
+shaft_genrou() = SingleMass(H = 5+rand(1)[1], D = 0.05)
 
 shaft_fivemass() = FiveMassShaft(
     3.01, #5.148, #H
@@ -189,7 +189,7 @@ tg_type1() = TGTypeI(
     0.1, #Ts
     0.45, #Tc
     0.0, #T3
-    12.0, #T4
+    0.0, #T4
     50.0, #T5
     (min = 0.3, max = 1.2), #P_lims
 )
@@ -211,15 +211,15 @@ avr_fixed() = AVRFixed(1.05) #Emf
 
 avr_type1() = AVRTypeI(
     20.0, #Ka - Gain
-    0.01, #Ke
-    0.063, #Kf
-    0.2, #Ta
-    0.314, #Te
-    0.35, #Tf
+    1.0, #Ke
+    0.001, #Kf
+    0.02, #Ta
+    0.7, #Te
+    1, #Tf
     0.001, #Tr
     (min = -5.0, max = 5.0),
-    0.0039, #Ae - 1st ceiling coefficient
-    1.555,
+    0.0006, #Ae - 1st ceiling coefficient
+    0.9,
 ) #Be - 2nd ceiling coefficient
 
 avr_type2() = AVRTypeII(
@@ -255,7 +255,7 @@ filt_gfoll() = LCLFilter(lf = 0.009, rf = 0.016, cf = 2.5, lg = 0.002, rg = 0.00
 ###### PLL Data ######
 pll() = KauraPLL(
     ω_lp = 500.0, #Cut-off frequency for LowPass filter of PLL filter.
-    kp_pll = 0.084,  #PLL proportional gain
+    kp_pll = 0.84,  #PLL proportional gain
     ki_pll = 4.69,   #PLL integral gain
 )
 
@@ -293,7 +293,7 @@ function outer_control_droop()
         return PSY.ActivePowerDroop(Rp = 0.05, ωz = 2 * pi * 5)
     end
     function reactive_droop()
-        return ReactivePowerDroop(kq = 0.2, ωf = 1000.0)
+        return ReactivePowerDroop(kq = 0.01, ωf = 2 * pi * 5)
     end
     return OuterControl(active_droop(), reactive_droop())
 end
@@ -303,7 +303,17 @@ function outer_control_gfoll()
         return ActivePowerPI(Kp_p = 2.0, Ki_p = 30.0, ωz = 0.132 * 2 * pi * 50)
     end
     function reactive_pi()
-        return ReactivePowerPI(Kp_q = 2.0, Ki_q = 30.0, ωf = 0.132 * 2 * pi * 50.0)
+        return ReactivePowerPI(Kp_q = 2.0, Ki_q = 30.0, ωf = 0.132 * 2 * pi * 50)
+    end
+    return OuterControl(active_pi(), reactive_pi())
+end
+
+function outer_control_gfoll_test()
+    function active_pi()
+        return ActivePowerPI(Kp_p = 2.0, Ki_p = 30.0, ωz = 0.132 * 2 * pi * 50)
+    end
+    function reactive_droop()
+        return ReactivePowerDroop(kq = 0.05, ωf = 2 * pi * 5)
     end
     return OuterControl(active_pi(), reactive_pi())
 end
@@ -325,7 +335,7 @@ inner_control() = VoltageModeControl(
 current_mode_inner() = CurrentModeControl(
     kpc = 0.37,     #Current controller proportional gain
     kic = 0.7,     #Current controller integral gain
-    kffv = 1.0,     #Binary variable enabling the voltage feed-forward in output of current controllers
+    kffv = 0,#1.0,     #Binary variable enabling the voltage feed-forward in output of current controllers
 )
 
 ####### Devices #######

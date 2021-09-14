@@ -3,7 +3,7 @@ function add_grid_forming(storage, capacity)
         name = get_name(storage),
         ω_ref = 1.0, # ω_ref,
         converter = AverageConverter(rated_voltage = 138.0, rated_current = (capacity*1e3)/138.0), #converter
-        outer_control = outer_control(), #outer control
+        outer_control = outer_control_droop(), #outer control
         inner_control = inner_control(), #inner control voltage source
         dc_source = FixedDCSource(voltage = 600.0), #dc source
         freq_estimator = no_pll(), #pll
@@ -16,8 +16,8 @@ function add_grid_following(storage, capacity)
         name = get_name(storage),
         ω_ref = 1.0, # ω_ref,
         converter = AverageConverter(rated_voltage = 138.0, rated_current = (capacity*1e3)/138.0), #converter
-        outer_control = outer_control_droop(), #ogetuter control
-        inner_control = inner_control(), #inner control voltage source
+        outer_control = outer_control_gfoll(), #ogetuter control
+        inner_control = current_mode_inner(), #inner control voltage source
         dc_source = FixedDCSource(voltage = 600.0), #dc source
         freq_estimator = pll(), #pll
         filter = filt(), #filter

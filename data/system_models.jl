@@ -6,69 +6,113 @@ file_dir = joinpath(
 include(joinpath(file_dir, "inverter_models.jl"))
 include(joinpath(file_dir, "dynamic_test_data.jl"))
 
-function buid_system(Gf, GF, ibr_bus)
+function buid_system()
 
-    sys = System(joinpath(file_dir, "14bus.raw"), joinpath(file_dir, "dyn_data.dyr"))
+    sys = System(joinpath(file_dir, "14bus.raw"))#, joinpath(file_dir, "dyn_data.dyr"))
     set_units_base_system!(sys, "DEVICE_BASE")
 
     default_generators = [g for g in get_components(Generator, sys)]
 
     gen = get_component(ThermalStandard, sys, "generator-1-1")
-    set_base_power!(gen, 180)
+    set_base_power!(gen, 80)
+    PSY.set_active_power!(gen, 0.8)
 
     gen = get_component(ThermalStandard, sys, "generator-2-1")
-    set_base_power!(gen, 100)
+    set_base_power!(gen, 60)
+    PSY.set_active_power!(gen, 0.8)
 
+    gen = get_component(ThermalStandard, sys, "generator-2-Trip")
+    set_base_power!(gen, 16)
+    PSY.set_active_power!(gen, 0.8)
+    
     gen = get_component(ThermalStandard, sys, "generator-3-1")
-    set_base_power!(gen, 140)
+    set_base_power!(gen, 60)
+    PSY.set_active_power!(gen, 0.8)
 
 
     gen = get_component(ThermalStandard, sys, "generator-6-1")
-    set_base_power!(gen, 100)
+    set_base_power!(gen, 60)
+    PSY.set_active_power!(gen, 0.8)
 
     gen = get_component(ThermalStandard, sys, "generator-8-1")
-    set_base_power!(gen, 140)
-
+    set_base_power!(gen, 60)
+    PSY.set_active_power!(gen, 0.8)
+    
     bus_capacity = Dict()
+    total_capacity=0
     for g in default_generators
         bus_capacity[g.bus.name] = get_base_power(g)
+        total_capacity = total_capacity + get_base_power(g)
     end
 
-    replace_gens = [g for g in default_generators if g.bus.number in ibr_bus]
-    
-    for g in replace_gens
-        gen = get_component(ThermalStandard, sys, g.name)
-        set_base_power!(gen, bus_capacity[g.bus.name]*(1-GF-Gf))
-
-        storage=add_battery(sys, join(["GF_Battery-", g.bus.number]), g.bus.name, bus_capacity[g.bus.name]*(GF), get_active_power(g), get_reactive_power(g))
-        add_component!(sys, storage)
-        inverter=add_grid_forming(storage, bus_capacity[g.bus.name]*(GF))
-        add_component!(sys, inverter, storage)
-        @show get_active_power(storage)
-
-        storage=add_battery(sys, join(["Gf_Battery-", g.bus.number]), g.bus.name, bus_capacity[g.bus.name]*(Gf), get_active_power(g), get_reactive_power(g))
-        add_component!(sys, storage)
-        inverter=add_grid_following(storage, bus_capacity[g.bus.name]*(Gf))
-        add_component!(sys, inverter, storage)
-    end
 
     return sys, bus_capacity
 end
 
-function change_ibr_penetration(Gf, GF, ibr_bus, bus_capacity, sys)
-    
-    generators = [g for g in get_components(Generator, sys)]
-    replace_gens = [g for g in generators if g.bus.number in ibr_bus]
+function add_ibr(sys, GF, Gf, ibr_bus, bus_capacity, total_power)
 
+    set_units_base_system!(sys, "DEVICE_BASE")
+
+    default_generators = [g for g in get_components(Generator, sys)]
+    
+    for g in default_generators
+        if occursin("Trip", g.name)==false
+            gen = get_component(ThermalStandard, sys, g.name)
+            set_base_power!(gen, bus_capacity[g.bus.name]*(1-GF-Gf-0.05))
+            set_base_power!(gen.dynamic_injector, bus_capacity[g.bus.name]*(1-GF-Gf-0.05))
+        end
+    end 
+    
+    
+    replace_gens = [g for g in default_generators if g.bus.number in ibr_bus]
+    GF_capacity = GF*total_power/0.8
+    Gf_capacity = Gf*total_power/0.8
+    
     for g in replace_gens
-        gen = get_component(ThermalStandard, sys, g.name)
-        set_base_power!(gen, bus_capacity[g.bus.name]*(1-GF-Gf))
+
+        storage=add_battery(sys, join(["GF_Battery-", g.bus.number]), g.bus.name, GF_capacity/length(ibr_bus), 0.8, get_reactive_power(g))
+        add_component!(sys, storage)
+        inverter=add_grid_forming(storage, GF_capacity/length(ibr_bus))
+        add_component!(sys, inverter, storage)
+
+        storage=add_battery(sys, join(["Gf_Battery-", g.bus.number]), g.bus.name, Gf_capacity/length(ibr_bus), 0.8, get_reactive_power(g))
+        add_component!(sys, storage)
+        inverter=add_grid_following(storage, Gf_capacity/length(ibr_bus))
+        add_component!(sys, inverter, storage)
+        
+    end
+
+    return sys
+end
+
+function change_ibr_penetration(sys, GF, Gf, ibr_bus, bus_capacity, total_power)
+    
+    set_units_base_system!(sys, "DEVICE_BASE")
+    default_generators = [g for g in get_components(Generator, sys)]
+    
+    for g in default_generators
+        if occursin("Trip", g.name)==false
+            gen = get_component(ThermalStandard, sys, g.name)
+            set_base_power!(gen, bus_capacity[g.bus.name]*(1-GF-Gf-0.05))
+            set_base_power!(gen.dynamic_injector, bus_capacity[g.bus.name]*(1-GF-Gf-0.05))
+        end
+    end 
+    
+    replace_gens = [g for g in generators if g.bus.number in ibr_bus]
+    GF_capacity = GF*total_power/0.8
+    Gf_capacity = Gf*total_power/0.8
+    
+    for g in replace_gens
     
         gen = get_component(GenericBattery, sys, join(["GF_Battery-", g.bus.number]))
-        gen.base_power=bus_capacity[g.bus.name]*(GF)
-        
+        set_base_power!(gen, GF_capacity/length(ibr_bus))
+        set_base_power!(gen.dynamic_injector, GF_capacity/length(ibr_bus))
+            
         gen = get_component(GenericBattery, sys, join(["Gf_Battery-", g.bus.number]))
-        gen.base_power=bus_capacity[g.bus.name]*(Gf)
+        set_base_power!(gen, Gf_capacity/length(ibr_bus))
+        set_base_power!(gen.dynamic_injector, Gf_capacity/length(ibr_bus))
     end
+    
+    return sys
 
 end
