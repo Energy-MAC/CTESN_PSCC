@@ -159,7 +159,8 @@ UB = [0.7, 1] # Upper-bounds on the 1) % of IBR at each node and 2) % of those I
 resSize=3000  # Size of the reservoir
 
 test_size =20
-test_error=zeros(length(sample_vals),test_size)
+test_freq_error=zeros(length(sample_vals),test_size)
+test_rocof_error=zeros(length(sample_vals),test_size)
 
 for i in 1:length(sample_vals)
     surr, resSol, N = build_surrogate(sys, bus_cap, LB, UB, resSize, sample_vals[i], total_power) 
@@ -214,8 +215,10 @@ for i in 1:length(sample_vals)
         sol_array = Array(sim_trip_gen.solution)
         freq_error=sol_array[state_index, :] - pred[state_index, :]
         
-        test_error[i,j]=norm(freq_error, Inf)
+        test_freq_error[i,j]=norm(freq_error, Inf)
+        test_rocof_error[i,j]=minimum(diff(freq_error, dims=2))/0.01
     end 
 end
 
-CSV.write("results/test_errors.csv", DataFrame(test_error, :auto), header = false)
+CSV.write("results/freq_test_errors.csv", DataFrame(test_freq_error, :auto), header = false)
+CSV.write("results/rocof_test_errors.csv", DataFrame(test_rocof_error, :auto), header = false)
