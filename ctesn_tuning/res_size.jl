@@ -18,7 +18,7 @@ using DataFrames
 gr()
 
 function build_surrogate(sys, bus_cap, lb, ub, resSize, sample_points, total_power)
-    
+
     sim = PSID.Simulation!(
         PSID.ImplicitModel, #Type of model used
         sys,         #system
@@ -30,7 +30,7 @@ function build_surrogate(sys, bus_cap, lb, ub, resSize, sample_points, total_pow
     res = small_signal_analysis(sim)
     gen = PSY.get_component(ThermalStandard, sys, "generator-2-Trip")
     PSY.set_available!(gen, false)
-    
+
     global_state_index = PSID.get_global_index(sim.simulation_inputs);
     drop_idx=sort(collect(values(global_state_index["generator-2-Trip"])));
     x0_gen_trip = vcat(sim.x0_init[1:drop_idx[1]-1], sim.x0_init[drop_idx[end]+1:end]);
@@ -47,9 +47,9 @@ function build_surrogate(sys, bus_cap, lb, ub, resSize, sample_points, total_pow
     execute!(sim_trip_gen, IDA(), tstops=sim_max_step)
     # execute!(sim_trip_gen, IDA())
 
-    sol_t = sim_trip_gen.solution.t   # Save the time isntants the problem solved at 
+    sol_t = sim_trip_gen.solution.t   # Save the time isntants the problem solved at
 
-    tspan = sim_trip_gen.simulation_inputs.tspan   # Get time span from problem 
+    tspan = sim_trip_gen.simulation_inputs.tspan   # Get time span from problem
     gen_names = [g.name for g in get_components(Generator, sys)]
     deleteat!(gen_names, findall(x->x=="generator-2-Trip",gen_names))
     global_state_index = PSID.get_global_index(sim_trip_gen.simulation_inputs);
@@ -61,10 +61,10 @@ function build_surrogate(sys, bus_cap, lb, ub, resSize, sample_points, total_pow
     r0 = randn(resSize) # Randomly initialize initial condition of reservoir
     A = erdos_renyi(resSize,resSize)  # Build sparsely connected matrix of reservoir
 
- 
+
     func(u, p, t) = tanh.(A*u .+ Win*((sim_trip_gen.solution(t)[state_index]) .-1) ./ 0.02)   # Build dynanics of reservoir
-    rprob = ODEProblem(func, r0, tspan, nothing) 
-    rsol = solve(rprob, Tsit5(), saveat = sim_trip_gen.solution.t)  # Simulate reservoir being driven by nominal soltuion of the system 
+    rprob = ODEProblem(func, r0, tspan, nothing)
+    rsol = solve(rprob, Tsit5(), saveat = sim_trip_gen.solution.t)  # Simulate reservoir being driven by nominal soltuion of the system
 
     # The two parametes are 1) the % of IBR at each node and 2) the % of those IBR that are grid-forming
     param_samples = QuasiMonteCarlo.sample(sample_points, lb, ub, QuasiMonteCarlo.SobolSample()) # Sample parameter sapce
@@ -72,7 +72,7 @@ function build_surrogate(sys, bus_cap, lb, ub, resSize, sample_points, total_pow
     function get_W(p)
         Gf=p[1]*(1-p[2]) # Grid following %
         GF=p[1]*p[2] # Grid forming %
-        
+
         gen = PSY.get_component(ThermalStandard, sys, "generator-2-Trip")
         PSY.set_available!(gen, true)
         sys=change_ibr_penetration(sys, GF, Gf, ibr_bus, bus_cap, total_power) # Change generation mix at each of the IBR nodes
@@ -87,13 +87,13 @@ function build_surrogate(sys, bus_cap, lb, ub, resSize, sample_points, total_pow
         ) # Rebuild the system and re-initialize all dynanics states with new IBR %'s
 
         res = small_signal_analysis(sim)  # Check to ensure system is small-signal stable
-        
+
         gen = PSY.get_component(ThermalStandard, sys, "generator-2-Trip")
         PSY.set_available!(gen, false)
         global_state_index = PSID.get_global_index(sim.simulation_inputs);
         drop_idx=sort(collect(values(global_state_index["generator-2-Trip"])));
         x0_gen_trip = vcat(sim.x0_init[1:drop_idx[1]-1], sim.x0_init[drop_idx[end]+1:end]);
-        
+
         sim_trip_gen = Simulation(
                 ImplicitModel,
                 sys,
@@ -102,12 +102,12 @@ function build_surrogate(sys, bus_cap, lb, ub, resSize, sample_points, total_pow
                 initialize_simulation = false,
                 initial_conditions = x0_gen_trip,
                 )
-        
+
         execute!(sim_trip_gen, IDA();)
-        
+
         R = reduce(hcat, rsol.(sol_t))
         S = reduce(hcat, (sim_trip_gen.solution.(sol_t)))[state_index, :]
-       
+
         Wout = (svd(R') \ S')' # calculate read-out matrix
         Wout, R, S
     end
@@ -149,7 +149,7 @@ Gf=0.5*(1-0.15) # % of Grid-following inverters for nominal case
 
 global sys = add_ibr(sys, GF, Gf, ibr_bus, bus_cap, total_power)
 
-sample_vals = [500:500:2000;] 
+sample_vals = [500:500:2000;]
 
 LB = [0.1, 0.1] # Lower-bounds on the 1) % of IBR at each node and 2) % of those IBR that are grid-forming
 UB = [0.7, 0.5] # Upper-bounds on the 1) % of IBR at each node and 2) % of those IBR that are grid-forming
@@ -160,6 +160,7 @@ test_freq_error=zeros(length(sample_vals),test_size)
 test_rocof_error=zeros(length(sample_vals),test_size)
 test_nadir_error=zeros(length(sample_vals),test_size)
 train_samples=40
+test_timmings = Dict{Int, Any}()
 
 gen_names = [g.name for g in get_components(Generator, sys)]
 deleteat!(gen_names, findall(x->x=="generator-2-Trip",gen_names))
@@ -167,9 +168,12 @@ deleteat!(gen_names, findall(x->x=="generator-2-Trip",gen_names))
 for i in 1:length(sample_vals)
     gen = PSY.get_component(ThermalStandard, sys, "generator-2-Trip")
     PSY.set_available!(gen, true)
-    surr, resSol, N = build_surrogate(sys, bus_cap, LB, UB, sample_vals[i], train_samples, total_power) 
+    surr, resSol, N = build_surrogate(sys, bus_cap, LB, UB, sample_vals[i], train_samples, total_power)
 
     test_params = QuasiMonteCarlo.sample(test_size, LB, UB, QuasiMonteCarlo.SobolSample()) # Sample parameter sapce
+
+    timmings = Dict("DAE_solve" => Vector{Float64}(undef, test_size),
+                    "Surrogate" => Vector{Float64}(undef, test_size),)
 
     for j in 1:test_size
         Gf_test=test_params[1,j]*(1-test_params[2,j]) # Grid following %
@@ -194,7 +198,7 @@ for i in 1:length(sample_vals)
         global_state_index = PSID.get_global_index(sim.simulation_inputs);
         drop_idx=sort(collect(values(global_state_index["generator-2-Trip"])));
         x0_gen_trip = vcat(sim.x0_init[1:drop_idx[1]-1], sim.x0_init[drop_idx[end]+1:end]);
-        
+
         sim_trip_gen = Simulation(
                 ImplicitModel,
                 sys,
@@ -203,27 +207,37 @@ for i in 1:length(sample_vals)
                 initialize_simulation = false,
                 initial_conditions = x0_gen_trip,
                 )
-        
-        execute!(sim_trip_gen, IDA(), saveat=0.01)
 
-        ts = sim_trip_gen.solution.t 
+        result, timmings["DAE_solve"][j] = @timed execute!(sim_trip_gen, IDA(), saveat=0.01)
+
+        ts = sim_trip_gen.solution.t
         println("Reservoir Size")
         println(sample_vals[i])
-        pred = predict(test_params[:,j], surr, resSol, ts, N, sample_vals[i])
-        
+
+        pred, timmings["Surrogate"][j] = @timed predict(test_params[:,j], surr, resSol, ts, N, sample_vals[i])
+
         global_state_index = PSID.get_global_index(sim_trip_gen.simulation_inputs);
         state_index = [get(global_state_index[g], :ω, 0) for g in gen_names]
-        
+
         sol_array = Array(sim_trip_gen.solution)
         freq_error=sol_array[state_index, :] - pred
 
-        
+
         test_nadir_error[i,j]=minimum(sol_array[state_index, :]) - minimum(pred)
         test_freq_error[i,j]=norm(freq_error, Inf)
         test_rocof_error[i,j]=(minimum(diff(sol_array[state_index, :], dims=2))-minimum(diff(pred, dims=2)))/0.01
-    end 
+    end
+    test_timmings[i] = timmings
+end
+
+timmings_df = DataFrame()
+for (i, test_time) in test_timmings
+    for (model, times) in test_time
+        timmings_df[!, "$(i)_$(model)"] = times
+    end
 end
 
 CSV.write("results/reservoir_size/freq_test_errors.csv", DataFrame(test_freq_error, :auto), header = false)
 CSV.write("results/reservoir_size/rocof_test_errors.csv", DataFrame(test_rocof_error, :auto), header = false)
 CSV.write("results/reservoir_size/nadir_test_errors.csv", DataFrame(test_nadir_error, :auto), header = false)
+CSV.write("results/efficiency_op/solve_time.csv", timmings_df)
