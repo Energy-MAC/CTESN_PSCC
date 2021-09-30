@@ -240,4 +240,4 @@ end
 CSV.write("results/reservoir_size/freq_test_errors.csv", DataFrame(test_freq_error, :auto), header = false)
 CSV.write("results/reservoir_size/rocof_test_errors.csv", DataFrame(test_rocof_error, :auto), header = false)
 CSV.write("results/reservoir_size/nadir_test_errors.csv", DataFrame(test_nadir_error, :auto), header = false)
-CSV.write("results/efficiency_op/solve_time.csv", timmings_df)
+CSV.write("results/reservoir_size/solve_time.csv", timmings_df)
