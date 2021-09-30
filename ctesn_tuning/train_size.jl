@@ -128,7 +128,6 @@ function predict(p, f, rsol, ts, N, resSize)
     pred
 end
 
-
 file_dir = joinpath(abspath(joinpath(pwd(), "..")), "data",)
 include(joinpath(file_dir, "dynamic_test_data.jl"))
 include(joinpath(file_dir, "inverter_models.jl"))
