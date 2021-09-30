@@ -1,362 +1,294 @@
-┌ Debug: 2021-09-14T11:36:11.404 [18237:1]: System doesn't contain Dynamic Branches
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_inputs.jl:188
-┌ Debug: 2021-09-14T11:36:11.404 [18237:1]: GF_Battery-6
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_inputs.jl:206
-┌ Debug: 2021-09-14T11:36:11.406 [18237:1]: Gf_Battery-3
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_inputs.jl:206
-┌ Debug: 2021-09-14T11:36:11.406 [18237:1]: GF_Battery-3
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_inputs.jl:206
-┌ Debug: 2021-09-14T11:36:11.407 [18237:1]: Gf_Battery-6
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_inputs.jl:206
-┌ Debug: 2021-09-14T11:36:11.407 [18237:1]: Gf_Battery-8
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_inputs.jl:206
-┌ Debug: 2021-09-14T11:36:11.407 [18237:1]: GF_Battery-8
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_inputs.jl:206
-┌ Debug: 2021-09-14T11:36:11.407 [18237:1]: generator-3-1
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_inputs.jl:206
-┌ Debug: 2021-09-14T11:36:11.408 [18237:1]: generator-8-1
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_inputs.jl:206
-┌ Debug: 2021-09-14T11:36:11.408 [18237:1]: generator-1-1
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_inputs.jl:206
-┌ Debug: 2021-09-14T11:36:11.408 [18237:1]: generator-2-1
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_inputs.jl:206
-┌ Debug: 2021-09-14T11:36:11.408 [18237:1]: generator-2-Trip
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_inputs.jl:206
-┌ Debug: 2021-09-14T11:36:11.409 [18237:1]: generator-6-1
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_inputs.jl:206
-┌ Debug: 2021-09-14T11:36:11.409 [18237:1]: Using default mass matrix entries FixedDCSource
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/DCside_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.409 [18237:1]: Using default mass matrix entries FixedFrequency
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/frequency_estimator_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.412 [18237:1]: Using default mass matrix entries OuterControl{ActivePowerDroop, ReactivePowerDroop}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/outer_control_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.412 [18237:1]: Using default mass matrix entries VoltageModeControl
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/inner_control_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.412 [18237:1]: Using default mass matrix entries AverageConverter
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/converter_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.412 [18237:1]: Using default mass matrix entries LCLFilter
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/filter_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.412 [18237:1]: Using default mass matrix entries FixedDCSource
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/DCside_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.412 [18237:1]: Using default mass matrix entries KauraPLL
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/frequency_estimator_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.414 [18237:1]: Using default mass matrix entries OuterControl{ActivePowerPI, ReactivePowerPI}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/outer_control_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.414 [18237:1]: Using default mass matrix entries CurrentModeControl
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/inner_control_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.414 [18237:1]: Using default mass matrix entries AverageConverter
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/converter_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.414 [18237:1]: Using default mass matrix entries LCLFilter
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/filter_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.414 [18237:1]: Using default mass matrix entries FixedDCSource
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/DCside_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.414 [18237:1]: Using default mass matrix entries FixedFrequency
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/frequency_estimator_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.415 [18237:1]: Using default mass matrix entries OuterControl{ActivePowerDroop, ReactivePowerDroop}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/outer_control_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.415 [18237:1]: Using default mass matrix entries VoltageModeControl
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/inner_control_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.416 [18237:1]: Using default mass matrix entries AverageConverter
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/converter_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.416 [18237:1]: Using default mass matrix entries LCLFilter
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/filter_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.416 [18237:1]: Using default mass matrix entries FixedDCSource
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/DCside_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.416 [18237:1]: Using default mass matrix entries KauraPLL
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/frequency_estimator_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.417 [18237:1]: Using default mass matrix entries OuterControl{ActivePowerPI, ReactivePowerPI}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/outer_control_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.417 [18237:1]: Using default mass matrix entries CurrentModeControl
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/inner_control_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.417 [18237:1]: Using default mass matrix entries AverageConverter
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/converter_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.417 [18237:1]: Using default mass matrix entries LCLFilter
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/filter_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.417 [18237:1]: Using default mass matrix entries FixedDCSource
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/DCside_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.417 [18237:1]: Using default mass matrix entries KauraPLL
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/frequency_estimator_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.419 [18237:1]: Using default mass matrix entries OuterControl{ActivePowerPI, ReactivePowerPI}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/outer_control_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.419 [18237:1]: Using default mass matrix entries CurrentModeControl
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/inner_control_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.419 [18237:1]: Using default mass matrix entries AverageConverter
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/converter_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.419 [18237:1]: Using default mass matrix entries LCLFilter
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/filter_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.419 [18237:1]: Using default mass matrix entries FixedDCSource
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/DCside_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.419 [18237:1]: Using default mass matrix entries FixedFrequency
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/frequency_estimator_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.420 [18237:1]: Using default mass matrix entries OuterControl{ActivePowerDroop, ReactivePowerDroop}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/outer_control_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.420 [18237:1]: Using default mass matrix entries VoltageModeControl
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/inner_control_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.420 [18237:1]: Using default mass matrix entries AverageConverter
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/converter_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.420 [18237:1]: Using default mass matrix entries LCLFilter
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/inverter_models/filter_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.420 [18237:1]: Using default mass matrix entries TGTypeI
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/tg_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.420 [18237:1]: Using default mass matrix entries PSSFixed
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/pss_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.420 [18237:1]: Using default mass matrix entries AVRTypeI)
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/avr_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.420 [18237:1]: Using default mass matrix entries RoundRotorExponential
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/machine_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries SingleMass
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/shaft_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries TGTypeI
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/tg_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries PSSFixed
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/pss_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries AVRTypeI)
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/avr_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries RoundRotorExponential
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/machine_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries SingleMass
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/shaft_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries TGTypeI
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/tg_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries PSSFixed
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/pss_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries AVRTypeI)
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/avr_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries RoundRotorExponential
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/machine_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries SingleMass
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/shaft_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries TGTypeI
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/tg_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries PSSFixed
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/pss_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries AVRTypeI)
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/avr_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries RoundRotorExponential
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/machine_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries SingleMass
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/shaft_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries TGTypeI
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/tg_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries PSSFixed
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/pss_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries AVRTypeI)
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/avr_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries RoundRotorExponential
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/machine_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries SingleMass
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/shaft_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries TGTypeI
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/tg_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries PSSFixed
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/pss_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries AVRTypeI)
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/avr_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries RoundRotorExponential
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/machine_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.421 [18237:1]: Using default mass matrix entries SingleMass
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/models/generator_models/shaft_models.jl:6
-┌ Debug: 2021-09-14T11:36:11.422 [18237:1]: Base.ImmutableDict(:bus_count => 14, :total_variables => 199, :first_dyn_branch_point => 0, :first_dyn_injection_pointer => 29, :branches_n_states => 0, :injection_n_states => 171)
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_inputs.jl:282
-┌ Debug: 2021-09-14T11:36:11.422 [18237:1]: Simulation Inputs Created
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation.jl:177
-┌ Info: 2021-09-14T11:36:11.422 [18237:1]: Initializing Simulation States
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation.jl:240
-┌ Debug: 2021-09-14T11:36:11.422 [18237:1]: Auxiliary Arrays created with Type Real
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_inputs.jl:127
-┌ Debug: 2021-09-14T11:36:11.423 [18237:1]: Start state intialization routine
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:197
-┌ Info: 2021-09-14T11:36:11.423 [18237:1]: Unit System changed to UnitSystem.SYSTEM_BASE = 0
-└ @ PowerSystems /home/ciaran/.julia/packages/PowerSystems/QMcB5/src/base.jl:339
-┌ Info: 2021-09-14T11:36:11.423 [18237:1]: Validating connectivity with Goderya algorithm
-└ @ PowerSystems /home/ciaran/.julia/packages/PowerSystems/QMcB5/src/utils/network_calculations/ybus_calculations.jl:296
-┌ Info: 2021-09-14T11:36:11.423 [18237:1]: The System has no islands
-└ @ PowerSystems /home/ciaran/.julia/packages/PowerSystems/QMcB5/src/utils/network_calculations/ybus_calculations.jl:242
-┌ Info: 2021-09-14T11:36:11.427 [18237:1]: PowerFlow solve converged, the results have been stored in the system
-└ @ PowerSystems /home/ciaran/.julia/packages/PowerSystems/QMcB5/src/utils/power_flow.jl:311
-┌ Info: 2021-09-14T11:36:11.427 [18237:1]: Unit System changed to UnitSystem.DEVICE_BASE = 1
-└ @ PowerSystems /home/ciaran/.julia/packages/PowerSystems/QMcB5/src/base.jl:345
-┌ Debug: 2021-09-14T11:36:11.427 [18237:1]: Updating Voltage guess
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:12
-┌ Debug: 2021-09-14T11:36:11.427 [18237:1]: BUS 12
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:14
-┌ Debug: 2021-09-14T11:36:11.427 [18237:1]: V_r
-│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0427822169608263
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:15
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: V_i
-│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.046976335045468776
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:16
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: BUS 04
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:14
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: V_r
-│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0217859962992681
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:15
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: V_i
-│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.05088802327141556
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:16
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: BUS 09
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:14
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: V_r
-│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.026749626845574
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:15
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: V_i
-│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.05525428434578227
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:16
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: BUS 02
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:14
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: V_r
-│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0396729259922464
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:15
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: V_i
-│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.026080777571253884
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:16
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: BUS 10
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:14
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: V_r
-│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.024523283225992
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:15
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: V_i
-│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.05575376278309431
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:16
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: BUS 03
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:14
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: V_r
-│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0075165467580673
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:15
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: V_i
-│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.0707842355945096
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:16
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: BUS 05
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:14
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: V_r
-│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0258045765673007
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:15
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: V_i
-│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.03955984701677577
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:16
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: BUS 11
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:14
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: V_r
-│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0380189527965504
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:15
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: V_i
-│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.04547290231998426
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:16
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: BUS 13
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:14
-┌ Debug: 2021-09-14T11:36:11.428 [18237:1]: V_r
-│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0362572604735565
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:15
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: V_i
-│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.04879824819806378
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:16
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: BUS 01
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:14
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: V_r
+┌ Debug: 2021-09-30T14:54:55.662 [238912:1]: System doesn't contain Dynamic Branches
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_inputs.jl:188
+┌ Debug: 2021-09-30T14:54:55.662 [238912:1]: GF_Battery-6
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-09-30T14:54:55.662 [238912:1]: Gf_Battery-3
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-09-30T14:54:55.663 [238912:1]: GF_Battery-3
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-09-30T14:54:55.663 [238912:1]: Gf_Battery-6
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-09-30T14:54:55.663 [238912:1]: Gf_Battery-8
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-09-30T14:54:55.663 [238912:1]: GF_Battery-8
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-09-30T14:54:55.663 [238912:1]: generator-3-1
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-09-30T14:54:55.663 [238912:1]: generator-8-1
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-09-30T14:54:55.663 [238912:1]: generator-1-1
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-09-30T14:54:55.663 [238912:1]: generator-2-1
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-09-30T14:54:55.663 [238912:1]: generator-2-Trip
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-09-30T14:54:55.663 [238912:1]: generator-6-1
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_inputs.jl:206
+┌ Debug: 2021-09-30T14:54:55.663 [238912:1]: Using default mass matrix entries FixedDCSource
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/DCside_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.663 [238912:1]: Using default mass matrix entries FixedFrequency
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/frequency_estimator_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.664 [238912:1]: Using default mass matrix entries OuterControl{ActivePowerDroop, ReactivePowerDroop}
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/outer_control_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.664 [238912:1]: Using default mass matrix entries VoltageModeControl
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/inner_control_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.664 [238912:1]: Using default mass matrix entries AverageConverter
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/converter_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.664 [238912:1]: Using default mass matrix entries LCLFilter
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/filter_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.664 [238912:1]: Using default mass matrix entries FixedDCSource
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/DCside_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.664 [238912:1]: Using default mass matrix entries KauraPLL
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/frequency_estimator_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.665 [238912:1]: Using default mass matrix entries OuterControl{ActivePowerPI, ReactivePowerPI}
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/outer_control_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.665 [238912:1]: Using default mass matrix entries CurrentModeControl
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/inner_control_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.665 [238912:1]: Using default mass matrix entries AverageConverter
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/converter_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.665 [238912:1]: Using default mass matrix entries LCLFilter
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/filter_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.665 [238912:1]: Using default mass matrix entries FixedDCSource
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/DCside_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.665 [238912:1]: Using default mass matrix entries FixedFrequency
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/frequency_estimator_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.665 [238912:1]: Using default mass matrix entries OuterControl{ActivePowerDroop, ReactivePowerDroop}
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/outer_control_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.665 [238912:1]: Using default mass matrix entries VoltageModeControl
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/inner_control_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.665 [238912:1]: Using default mass matrix entries AverageConverter
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/converter_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.665 [238912:1]: Using default mass matrix entries LCLFilter
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/filter_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.666 [238912:1]: Using default mass matrix entries FixedDCSource
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/DCside_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.666 [238912:1]: Using default mass matrix entries KauraPLL
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/frequency_estimator_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.666 [238912:1]: Using default mass matrix entries OuterControl{ActivePowerPI, ReactivePowerPI}
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/outer_control_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.666 [238912:1]: Using default mass matrix entries CurrentModeControl
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/inner_control_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.666 [238912:1]: Using default mass matrix entries AverageConverter
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/converter_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.666 [238912:1]: Using default mass matrix entries LCLFilter
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/filter_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.666 [238912:1]: Using default mass matrix entries FixedDCSource
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/DCside_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.666 [238912:1]: Using default mass matrix entries KauraPLL
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/frequency_estimator_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries OuterControl{ActivePowerPI, ReactivePowerPI}
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/outer_control_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries CurrentModeControl
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/inner_control_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries AverageConverter
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/converter_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries LCLFilter
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/filter_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries FixedDCSource
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/DCside_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries FixedFrequency
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/frequency_estimator_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries OuterControl{ActivePowerDroop, ReactivePowerDroop}
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/outer_control_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries VoltageModeControl
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/inner_control_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries AverageConverter
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/converter_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries LCLFilter
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/inverter_models/filter_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries TGTypeI
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/tg_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries PSSFixed
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/pss_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries AVRTypeII)
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/avr_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries RoundRotorExponential
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/machine_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries SingleMass
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/shaft_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries TGTypeI
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/tg_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries PSSFixed
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/pss_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries AVRTypeII)
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/avr_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries RoundRotorExponential
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/machine_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries SingleMass
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/shaft_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.667 [238912:1]: Using default mass matrix entries TGTypeI
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/tg_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries PSSFixed
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/pss_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries AVRTypeII)
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/avr_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries RoundRotorExponential
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/machine_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries SingleMass
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/shaft_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries TGTypeI
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/tg_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries PSSFixed
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/pss_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries AVRTypeII)
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/avr_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries RoundRotorExponential
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/machine_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries SingleMass
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/shaft_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries TGTypeI
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/tg_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries PSSFixed
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/pss_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries AVRTypeII)
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/avr_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries RoundRotorExponential
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/machine_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries SingleMass
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/shaft_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries TGTypeI
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/tg_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries PSSFixed
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/pss_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries AVRTypeII)
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/avr_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries RoundRotorExponential
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/machine_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Using default mass matrix entries SingleMass
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/models/generator_models/shaft_models.jl:6
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Base.ImmutableDict(:bus_count => 14, :total_variables => 199, :first_dyn_branch_point => 0, :first_dyn_injection_pointer => 29, :branches_n_states => 0, :injection_n_states => 171)
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_inputs.jl:282
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Simulation Inputs Created
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation.jl:177
+┌ Info: 2021-09-30T14:54:55.668 [238912:1]: Initializing Simulation States
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation.jl:240
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Auxiliary Arrays created with Type Real
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_inputs.jl:127
+┌ Debug: 2021-09-30T14:54:55.668 [238912:1]: Start state intialization routine
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:197
+┌ Info: 2021-09-30T14:54:55.668 [238912:1]: Unit System changed to UnitSystem.SYSTEM_BASE = 0
+└ @ PowerSystems /global/home/users/cmroberts/.julia/packages/PowerSystems/eMC6m/src/base.jl:339
+┌ Info: 2021-09-30T14:54:55.668 [238912:1]: Validating connectivity with Goderya algorithm
+└ @ PowerSystems /global/home/users/cmroberts/.julia/packages/PowerSystems/eMC6m/src/utils/network_calculations/ybus_calculations.jl:296
+┌ Info: 2021-09-30T14:54:55.668 [238912:1]: The System has no islands
+└ @ PowerSystems /global/home/users/cmroberts/.julia/packages/PowerSystems/eMC6m/src/utils/network_calculations/ybus_calculations.jl:242
+┌ Info: 2021-09-30T14:54:55.669 [238912:1]: PowerFlow solve converged, the results have been stored in the system
+└ @ PowerSystems /global/home/users/cmroberts/.julia/packages/PowerSystems/eMC6m/src/utils/power_flow.jl:312
+┌ Info: 2021-09-30T14:54:55.669 [238912:1]: Unit System changed to UnitSystem.DEVICE_BASE = 1
+└ @ PowerSystems /global/home/users/cmroberts/.julia/packages/PowerSystems/eMC6m/src/base.jl:345
+┌ Debug: 2021-09-30T14:54:55.669 [238912:1]: Updating Voltage guess
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:12
+┌ Debug: 2021-09-30T14:54:55.669 [238912:1]: BUS 12
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-09-30T14:54:55.669 [238912:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.041747581599347
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-09-30T14:54:55.669 [238912:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.06602205241941325
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-09-30T14:54:55.669 [238912:1]: BUS 04
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-09-30T14:54:55.669 [238912:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0203549113346642
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-09-30T14:54:55.669 [238912:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.061655539663760105
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-09-30T14:54:55.669 [238912:1]: BUS 09
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-09-30T14:54:55.669 [238912:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0257717558402755
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-09-30T14:54:55.669 [238912:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.07270736518708558
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-09-30T14:54:55.669 [238912:1]: BUS 02
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-09-30T14:54:55.669 [238912:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0395317948641645
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-09-30T14:54:55.669 [238912:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.031203324606340888
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-09-30T14:54:55.669 [238912:1]: BUS 10
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-09-30T14:54:55.669 [238912:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0235191219072701
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.07341779117748358
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: BUS 03
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0065490693018826
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.08342044765831652
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: BUS 05
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0245501325369677
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.049121323755392104
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: BUS 11
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0371210630424519
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.06394666216507595
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: BUS 13
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0352326115709025
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.06762790575442158
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: BUS 01
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_r
 │   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.06
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:15
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: V_i
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_i
 │   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = 0.0
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:16
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: BUS 07
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:14
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: V_r
-│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0458497398714937
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:15
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: V_i
-│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.016430814348943844
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:16
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: BUS 14
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:14
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: V_r
-│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0113864344347034
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:15
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: V_i
-│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.06987304894805561
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:16
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: BUS 08
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:14
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: V_r
-│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0773421096157032
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:15
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: V_i
-│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = 0.07572304040902125
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:16
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: BUS 06
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:14
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: V_r
-│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0595620099416923
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:15
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: V_i
-│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.030468788757040524
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:16
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: Updating Source internal voltages
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:26
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: Updating Dynamic Injection Component Initial Guess
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:46
-┌ Debug: 2021-09-14T11:36:11.429 [18237:1]: GF_Battery-6
-│   typeof(d) = GenericBattery
-│   typeof(dynamic_device) = DynamicInverter{AverageConverter, OuterControl{ActivePowerDroop, ReactivePowerDroop}, VoltageModeControl, FixedDCSource, FixedFrequency, LCLFilter}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:51
-┌ Debug: 2021-09-14T11:36:11.436 [18237:1]: Gf_Battery-3
-│   typeof(d) = GenericBattery
-│   typeof(dynamic_device) = DynamicInverter{AverageConverter, OuterControl{ActivePowerPI, ReactivePowerPI}, CurrentModeControl, FixedDCSource, KauraPLL, LCLFilter}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:51
-┌ Debug: 2021-09-14T11:36:11.440 [18237:1]: GF_Battery-3
-│   typeof(d) = GenericBattery
-│   typeof(dynamic_device) = DynamicInverter{AverageConverter, OuterControl{ActivePowerDroop, ReactivePowerDroop}, VoltageModeControl, FixedDCSource, FixedFrequency, LCLFilter}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:51
-┌ Debug: 2021-09-14T11:36:11.442 [18237:1]: Gf_Battery-6
-│   typeof(d) = GenericBattery
-│   typeof(dynamic_device) = DynamicInverter{AverageConverter, OuterControl{ActivePowerPI, ReactivePowerPI}, CurrentModeControl, FixedDCSource, KauraPLL, LCLFilter}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:51
-┌ Debug: 2021-09-14T11:36:11.443 [18237:1]: Gf_Battery-8
-│   typeof(d) = GenericBattery
-│   typeof(dynamic_device) = DynamicInverter{AverageConverter, OuterControl{ActivePowerPI, ReactivePowerPI}, CurrentModeControl, FixedDCSource, KauraPLL, LCLFilter}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:51
-┌ Debug: 2021-09-14T11:36:11.445 [18237:1]: GF_Battery-8
-│   typeof(d) = GenericBattery
-│   typeof(dynamic_device) = DynamicInverter{AverageConverter, OuterControl{ActivePowerDroop, ReactivePowerDroop}, VoltageModeControl, FixedDCSource, FixedFrequency, LCLFilter}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:51
-┌ Debug: 2021-09-14T11:36:11.447 [18237:1]: generator-3-1
-│   typeof(d) = ThermalStandard
-│   typeof(dynamic_device) = DynamicGenerator{RoundRotorExponential, SingleMass, AVRTypeI, TGTypeI, PSSFixed}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:51
-┌ Debug: 2021-09-14T11:36:11.449 [18237:1]: generator-8-1
-│   typeof(d) = ThermalStandard
-│   typeof(dynamic_device) = DynamicGenerator{RoundRotorExponential, SingleMass, AVRTypeI, TGTypeI, PSSFixed}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:51
-┌ Debug: 2021-09-14T11:36:11.450 [18237:1]: generator-1-1
-│   typeof(d) = ThermalStandard
-│   typeof(dynamic_device) = DynamicGenerator{RoundRotorExponential, SingleMass, AVRTypeI, TGTypeI, PSSFixed}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:51
-┌ Debug: 2021-09-14T11:36:11.451 [18237:1]: generator-2-1
-│   typeof(d) = ThermalStandard
-│   typeof(dynamic_device) = DynamicGenerator{RoundRotorExponential, SingleMass, AVRTypeI, TGTypeI, PSSFixed}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:51
-┌ Debug: 2021-09-14T11:36:11.452 [18237:1]: generator-2-Trip
-│   typeof(d) = ThermalStandard
-│   typeof(dynamic_device) = DynamicGenerator{RoundRotorExponential, SingleMass, AVRTypeI, TGTypeI, PSSFixed}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:51
-┌ Debug: 2021-09-14T11:36:11.453 [18237:1]: generator-6-1
-│   typeof(d) = ThermalStandard
-│   typeof(dynamic_device) = DynamicGenerator{RoundRotorExponential, SingleMass, AVRTypeI, TGTypeI, PSSFixed}
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:51
-┌ Debug: 2021-09-14T11:36:11.454 [18237:1]: No Dynamic Branches in the system
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:205
-┌ Debug: 2021-09-14T11:36:11.454 [18237:1]: Start NLSolve System Run
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:166
-┌ Debug: 2021-09-14T11:36:11.454 [18237:1]: [1.06, 1.0396729259922464, 1.0075165467580673, 1.0217859962992681, 1.0258045765673007, 1.0595620099416923, 1.0458497398714937, 1.0773421096157032, 1.026749626845574, 1.024523283225992, 1.0380189527965504, 1.0427822169608263, 1.0362572604735565, 1.0113864344347034, 0.0, -0.026080777571253884, -0.0707842355945096, -0.05088802327141556, -0.03955984701677577, -0.030468788757040524, -0.016430814348943844, 0.07572304040902125, -0.05525428434578227, -0.05575376278309431, -0.04547290231998426, -0.046976335045468776, -0.04879824819806378, -0.06987304894805561, 0.1608445704602935, 0.2365955320636701, 0.22107780650473408, 0.0009541852457760492, -0.0003990208674774385, 0.07627967045181654, -0.009866812828864391, 1.0886612651911065, -0.14045606817822928, 0.7427738847590424, -0.040134493799542884, 1.0912550100301672, 0.11863288119087183, 0.7515527179671203, -0.12088736454169138, -0.003330514822411484, 0.8063070800003181, 0.025806642660240735, 0.18432433671968176, 1.4911355229532788, -0.0004282090487630017, 1.0414722682268063, 0.0, 0.0, 0.0819998168609833, 0.7797817611992771, -0.03616663986392887, 1.0379728156117694, 0.08530486232546498, 0.7860943210113278, -0.11297662821917444, 0.14053421714855266, 0.22480807807079456, 0.1843243367196818, 0.0010069688715786443, -0.00038773011142628424, 0.07224661549873757, -0.01040930578839725, 1.0308703082320019, -0.14822581789637101, 0.7797817611992771, -0.03616663986392889, 1.0379728156117694, 0.08530486232546498, 0.7860943210113278, -0.11297662821917445, -0.004005837551131883, 0.8057944524282572, 0.024469522095753964, 0.22107780650473408, 1.571266793014982, -0.0005150362565822439, 1.0976844981212002, 1.232595164407831e-32, -2.628134678907955e-33, 0.10828707973373507, 0.7427738847590424, -0.040134493799542884, 1.0912550100301672, 0.11863288119087183, 0.7515527179671203, -0.12088736454169138, -0.010572244152784134, 0.8064648678189728, 0.023193103193555043, 0.4670282883935157, 1.6587797575091996, -0.0013592885339623806, 1.1590584509668236, 2.465190328815662e-32, -5.25626935781591e-33, 0.1956199472318006, 0.7441717839266876, -0.17587353400397032, 1.136952141762278, 0.22529163344427663, 0.760843364801487, -0.2600079924946908, 0.2416986092605962, 0.3074086855103931, 0.46702828839351573, 0.0008783966327963625, -0.0006495142681658143, 0.08068475374536238, -0.009124364124044472, 1.151823774197049, -0.129299984347591, 0.7441717839266876, -0.17587353400397038, 1.136952141762278, 0.22529163344427663, 0.760843364801487, -0.26000799249469086, 0.8362011453623679, 0.5275982745912973, 0.7713761583064402, 0.6881716625103877, 0.8121646703895551, 1.0, 1.8085759512012811, 1.8141017758869797, -0.0018085759655643852, 1.01, 0.7999999999999999, 0.7999999999999999, 0.7999999999999999, 1.0617646598164334, 0.44982359849935605, 0.9915159792482885, 0.5867264328252471, 0.7334462382893948, 1.0, 2.1154948683386094, 2.1240148017323675, -0.0021154948828070452, 1.08, 0.7999999999999999, 0.7999999999999999, 0.7999999999999999, 1.0407818469718566, 0.5512894253115032, 0.9197987990441409, 0.7190731634497868, 0.8769943756303716, 1.0, 2.855527565887592, 2.8779128950955783, -0.0028555275590345097, 1.06, 1.3108917180824537, 1.3108917180824537, 1.3108917180824537, 0.9612831697033161, 0.4816908665427329, 0.8935220644663737, 0.628292434620956, 0.7290810367002843, 1.0, 1.9776997482574517, 1.9847357394543998, -0.0019776997664484597, 1.0400000000000003, 0.8000000000000002, 0.8000000000000002, 0.8000000000000002, 0.9612831697033161, 0.4816908665427329, 0.8935220644663737, 0.628292434620956, 0.7290810367002843, 1.0, 1.9776997482574517, 1.9847357394543998, -0.0019776997664484597, 1.0400000000000003, 0.8000000000000002, 0.8000000000000002, 0.8000000000000002, 0.9172665066397595, 0.517881551392861, 0.8558949719293412, 0.6754976757298188, 0.7782732926490864, 1.0, 1.8378395272960348, 1.8436046167054343, -0.0018378395408480408, 1.06, 0.8000000000000003, 0.8000000000000003, 0.8000000000000003]
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:167
-┌ Info: 2021-09-14T11:36:11.621 [18237:1]: Initialization succeeded with a tolerance of 1.0e-9 using solver trust_region. Saving solution.
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:151
-┌ Debug: 2021-09-14T11:36:11.621 [18237:1]: Write result to initial guess vector under condition converged = true
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_initialization.jl:177
-┌ Info: 2021-09-14T11:36:11.621 [18237:1]: Attaching Perturbations
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation.jl:216
-┌ Debug: 2021-09-14T11:36:11.621 [18237:1]: BranchTrip(1.0, "BUS 02-BUS 04-i_4")
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation.jl:227
-┌ Debug: 2021-09-14T11:36:11.622 [18237:1]: Auxiliary Arrays created with Type Float64
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation_inputs.jl:127
-┌ Info: 2021-09-14T11:36:11.622 [18237:1]: Simulations status = BUILT
-└ @ PowerSimulationsDynamics /home/ciaran/.julia/packages/PowerSimulationsDynamics/qreoD/src/base/simulation.jl:273
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: BUS 07
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.0454900926932817
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.03509019648895563
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: BUS 14
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.010092775498603
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.08758029853670506
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: BUS 08
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.07890195709317
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = 0.04868846866073781
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: BUS 06
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:14
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_r
+│   PSY.get_magnitude(bus) * cos(PSY.get_angle(bus)) = 1.058823671371904
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:15
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: V_i
+│   PSY.get_magnitude(bus) * sin(PSY.get_angle(bus)) = -0.04992427207804511
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:16
+┌ Debug: 2021-09-30T14:54:55.670 [238912:1]: Updating Source internal voltages
+└ @ PowerSimulationsDynamics /global/home/users/cmroberts/.julia/packages/PowerSimulationsDynamics/IvsFd/src/base/simulation_initialization.jl:26

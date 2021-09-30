@@ -223,7 +223,7 @@ avr_type1() = AVRTypeI(
 ) #Be - 2nd ceiling coefficient
 
 avr_type2() = AVRTypeII(
-    200.0, #K0 - Gain
+    300.0, #K0 - Gain
     4.0, #T1 - 1st pole
     1.0, #T2 - 1st zero
     0.006, #T3 - 2nd pole
@@ -293,7 +293,7 @@ function outer_control_droop()
         return PSY.ActivePowerDroop(Rp = 0.05, ωz = 2 * pi * 5)
     end
     function reactive_droop()
-        return ReactivePowerDroop(kq = 0.01, ωf = 2 * pi * 5)
+        return ReactivePowerDroop(kq = 0, ωf = 2 * pi * 5)
     end
     return OuterControl(active_droop(), reactive_droop())
 end

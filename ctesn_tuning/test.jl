@@ -54,18 +54,20 @@ function build_surrogate(sys, bus_cap, lb, ub, resSize, sample_points, total_pow
     deleteat!(gen_names, findall(x->x=="generator-2-Trip",gen_names))
     global_state_index = PSID.get_global_index(sim_trip_gen.simulation_inputs);
     state_index = [get(global_state_index[g], :ω, 0) for g in gen_names]
-
-    N = 5
-
-    Win = randn(N, resSize)'  # Build read in matrix for reservior
-    r0 = randn(resSize) # Randomly initialize initial condition of reservoir
-    A = erdos_renyi(resSize,resSize)  # Build sparsely connected matrix of reservoir
-
+    
+    # Win = randn(N, resSize)'  # Build read in matrix for reservior
+    # r0 = randn(resSize) # Randomly initialize initial condition of reservoir
+    # A = erdos_renyi(resSize,resSize)  # Build sparsely connected matrix of reservoir
+    
+    r0 = vec(Matrix(DataFrame(CSV.File("fixed_matrices/r0.csv", header=false))))
+    Win = Matrix(DataFrame(CSV.File("fixed_matrices/Win.csv", header=false)))
+    A = loadgraph("fixed_matrices/mygraph.lgz")
  
     func(u, p, t) = tanh.(A*u .+ Win*((sim_trip_gen.solution(t)[state_index]) .-1) ./ 0.02)   # Build dynanics of reservoir
     rprob = ODEProblem(func, r0, tspan, nothing) 
     rsol = solve(rprob, Tsit5(), saveat = sim_trip_gen.solution.t)  # Simulate reservoir being driven by nominal soltuion of the system 
-
+    N = 5
+    
     # The two parametes are 1) the % of IBR at each node and 2) the % of those IBR that are grid-forming
     param_samples = QuasiMonteCarlo.sample(sample_points, lb, ub, QuasiMonteCarlo.SobolSample()) # Sample parameter sapce
 
@@ -82,6 +84,7 @@ function build_surrogate(sys, bus_cap, lb, ub, resSize, sample_points, total_pow
             sys,         #system
             file_dir,       #path for the simulation output
             (0.0, 20.0), #time span
+            BranchTrip(1.0, "BUS 02-BUS 04-i_4"); # Define perturbation. This is currrently a line-trip but will change
             console_level = Logging.Info,
         ) # Rebuild the system and re-initialize all dynanics states with new IBR %'s
 
@@ -131,12 +134,23 @@ include(joinpath(file_dir, "dynamic_test_data.jl"))
 include(joinpath(file_dir, "inverter_models.jl"))
 include(joinpath(file_dir, "system_models.jl"))
 
+resSize=3000 # Size of the reservoir
+Num_States = 5
+Win = randn(Num_States, resSize)'  # Build read in matrix for reservior
+r0 = randn(resSize) # Randomly initialize initial condition of reservoir
+A = erdos_renyi(resSize,resSize)  # Build sparsely connected matrix of reservoir
+
+CSV.write("fixed_matrices/Win.csv", DataFrame(Win, :auto), header = false)
+CSV.write("fixed_matrices/r0.csv", DataFrame(r0', :auto), header = false)
+savegraph("fixed_matrices/mygraph.lgz", A)
+
 global sys, bus_cap = buid_system()   # Build the system
 
 df = solve_powerflow(sys)
 total_power=sum(df["bus_results"].P_gen)
 
 generators = [g for g in get_components(Generator, sys)]
+
 for gen in generators
     dyn_gen = dyn_gen_genrou(gen)
     add_component!(sys, dyn_gen, gen);
@@ -148,26 +162,23 @@ Gf=0.5*(1-0.15) # % of Grid-following inverters for nominal case
 
 global sys = add_ibr(sys, GF, Gf, ibr_bus, bus_cap, total_power)
 
-res_sizes = [500:500:2000;] 
+sample_vals = [50:10:50;] # Number of times to sample the parameter space to calculate readout matrices
 
 LB = [0.1, 0.1] # Lower-bounds on the 1) % of IBR at each node and 2) % of those IBR that are grid-forming
 UB = [0.7, 0.5] # Upper-bounds on the 1) % of IBR at each node and 2) % of those IBR that are grid-forming
 
-
 test_size=200
-test_freq_error=zeros(length(res_sizes),test_size)
-test_rocof_error=zeros(length(res_sizes),test_size)
-test_nadir_error=zeros(length(res_sizes),test_size)
-train_samples=40
+test_freq_error=zeros(length(sample_vals),test_size)
+test_rocof_error=zeros(length(sample_vals),test_size)
+test_nadir_error=zeros(length(sample_vals),test_size)
 
 gen_names = [g.name for g in get_components(Generator, sys)]
 deleteat!(gen_names, findall(x->x=="generator-2-Trip",gen_names))
 
-for i in 1:length(res_sizes)
+for i in 1:length(sample_vals)
     gen = PSY.get_component(ThermalStandard, sys, "generator-2-Trip")
     PSY.set_available!(gen, true)
-    global sys=change_ibr_penetration(sys, GF, Gf, ibr_bus, bus_cap, total_power) 
-    surr, resSol, N = build_surrogate(sys, bus_cap, LB, UB, res_sizes[i], train_samples, total_power) 
+    surr, resSol, N = build_surrogate(sys, bus_cap, LB, UB, resSize, sample_vals[i], total_power) 
 
     test_params = QuasiMonteCarlo.sample(test_size, LB, UB, QuasiMonteCarlo.SobolSample()) # Sample parameter sapce
 
@@ -207,7 +218,7 @@ for i in 1:length(res_sizes)
 
         ts = sim_trip_gen.solution.t 
 
-        pred = predict(test_params[:,j], surr, resSol, ts, N, res_sizes[i])
+        pred = predict(test_params[:,j], surr, resSol, ts, N, resSize)
         
         global_state_index = PSID.get_global_index(sim_trip_gen.simulation_inputs);
         state_index = [get(global_state_index[g], :ω, 0) for g in gen_names]
@@ -222,6 +233,6 @@ for i in 1:length(res_sizes)
     end 
 end
 
-CSV.write("results/reservoir_size/freq_test_errors.csv", DataFrame(test_freq_error, :auto), header = false)
-CSV.write("results/reservoir_size/rocof_test_errors.csv", DataFrame(test_rocof_error, :auto), header = false)
-CSV.write("results/reservoir_size/nadir_test_errors.csv", DataFrame(test_nadir_error, :auto), header = false)
+CSV.write("results/test/freq_test_errors.csv", DataFrame(test_freq_error, :auto), header = false)
+CSV.write("results/test/rocof_test_errors.csv", DataFrame(test_rocof_error, :auto), header = false)
+CSV.write("results/test/nadir_test_errors.csv", DataFrame(test_nadir_error, :auto), header = false)

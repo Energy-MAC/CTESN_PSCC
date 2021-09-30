@@ -55,10 +55,6 @@ function build_surrogate(sys, bus_cap, lb, ub, resSize, sample_points, total_pow
     global_state_index = PSID.get_global_index(sim_trip_gen.simulation_inputs);
     state_index = [get(global_state_index[g], :ω, 0) for g in gen_names]
     
-    # Win = randn(N, resSize)'  # Build read in matrix for reservior
-    # r0 = randn(resSize) # Randomly initialize initial condition of reservoir
-    # A = erdos_renyi(resSize,resSize)  # Build sparsely connected matrix of reservoir
-    
     r0 = vec(Matrix(DataFrame(CSV.File("fixed_matrices/r0.csv", header=false))))
     Win = Matrix(DataFrame(CSV.File("fixed_matrices/Win.csv", header=false)))
     A = loadgraph("fixed_matrices/mygraph.lgz")
@@ -84,7 +80,6 @@ function build_surrogate(sys, bus_cap, lb, ub, resSize, sample_points, total_pow
             sys,         #system
             file_dir,       #path for the simulation output
             (0.0, 20.0), #time span
-            BranchTrip(1.0, "BUS 02-BUS 04-i_4"); # Define perturbation. This is currrently a line-trip but will change
             console_level = Logging.Info,
         ) # Rebuild the system and re-initialize all dynanics states with new IBR %'s
 
@@ -162,7 +157,7 @@ Gf=0.5*(1-0.15) # % of Grid-following inverters for nominal case
 
 global sys = add_ibr(sys, GF, Gf, ibr_bus, bus_cap, total_power)
 
-sample_vals = [20:10:70;] # Number of times to sample the parameter space to calculate readout matrices
+sample_vals = [50:10:50;] # Number of times to sample the parameter space to calculate readout matrices
 
 LB = [0.1, 0.1] # Lower-bounds on the 1) % of IBR at each node and 2) % of those IBR that are grid-forming
 UB = [0.7, 0.5] # Upper-bounds on the 1) % of IBR at each node and 2) % of those IBR that are grid-forming
@@ -176,6 +171,7 @@ gen_names = [g.name for g in get_components(Generator, sys)]
 deleteat!(gen_names, findall(x->x=="generator-2-Trip",gen_names))
 
 for i in 1:length(sample_vals)
+    global sys=change_ibr_penetration(sys, GF, Gf, ibr_bus, bus_cap, total_power)
     gen = PSY.get_component(ThermalStandard, sys, "generator-2-Trip")
     PSY.set_available!(gen, true)
     surr, resSol, N = build_surrogate(sys, bus_cap, LB, UB, resSize, sample_vals[i], total_power) 
