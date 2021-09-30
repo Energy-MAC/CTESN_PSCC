@@ -162,6 +162,7 @@ test_freq_error=zeros(4,test_size)
 test_rocof_error=zeros(4,test_size)
 test_nadir_error=zeros(4,test_size)
 test_timmings = Dict{Int, Any}()
+stiffness_ratios = zeros(4, test_size)
 
 for i in 1:4
     global sys, bus_cap = buid_system()   # Build the system
@@ -222,7 +223,12 @@ for i in 1:4
                 initial_conditions = x0_gen_trip,
                 )
 
+        res = small_signal_analysis(sim_trip_gen)
+        real_eigs = filter(x -> x > 0, -1*real(res.eigenvalues))
+        stiffness_ratios[i, j] = maximum(real_eigs)/minimum(real_eigs)
+
         result, timmings["DAE_solve"][j] = @timed execute!(sim_trip_gen, IDA(), saveat=0.01)
+
 
         ts = sim_trip_gen.solution.t
 
@@ -255,3 +261,4 @@ CSV.write("results/efficiency_op/freq_test_errors_op.csv", DataFrame(test_freq_e
 CSV.write("results/efficiency_op/rocof_test_errors_op.csv", DataFrame(test_rocof_error, :auto), header = false)
 CSV.write("results/efficiency_op/nadir_test_errors_op.csv", DataFrame(test_nadir_error, :auto), header = false)
 CSV.write("results/efficiency_op/solve_time.csv", timmings_df)
+CSV.write("results/efficiency_op/stiff_ratio_op.csv", DataFrame(stiffness_ratios, :auto), header = false)
