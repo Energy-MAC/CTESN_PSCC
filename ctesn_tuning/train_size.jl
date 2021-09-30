@@ -218,6 +218,10 @@ for i in 1:length(sample_vals)
                 initial_conditions = x0_gen_trip,
                 )
 
+        sm = small_signal_analysis(sim_trip_gen)
+        real_eigs = filter(x -> x > 0, -1*real(sm.eigenvalues))
+        stiffness_ratios[i, j] = maximum(real_eigs)/minimum(real_eigs)
+
         result, timmings["DAE_solve"][j] = @timed execute!(sim_trip_gen, IDA(), saveat=0.01)
 
         ts = sim_trip_gen.solution.t
@@ -250,3 +254,4 @@ CSV.write("results/train_size/freq_test_errors.csv", DataFrame(test_freq_error, 
 CSV.write("results/train_size/rocof_test_errors.csv", DataFrame(test_rocof_error, :auto), header = false)
 CSV.write("results/train_size/nadir_test_errors.csv", DataFrame(test_nadir_error, :auto), header = false)
 CSV.write("results/train_size/solve_time.csv", timmings_df)
+CSV.write("results/train_size/stiff_ratio_op.csv", DataFrame(stiffness_ratios, :auto), header = false)

@@ -161,6 +161,7 @@ test_rocof_error=zeros(length(sample_vals),test_size)
 test_nadir_error=zeros(length(sample_vals),test_size)
 train_samples=40
 test_timmings = Dict{Int, Any}()
+stiffness_ratios = zeros(length(sample_vals),test_size)
 
 gen_names = [g.name for g in get_components(Generator, sys)]
 deleteat!(gen_names, findall(x->x=="generator-2-Trip",gen_names))
@@ -208,6 +209,10 @@ for i in 1:length(sample_vals)
                 initial_conditions = x0_gen_trip,
                 )
 
+        sm = small_signal_analysis(sim_trip_gen)
+        real_eigs = filter(x -> x > 0, -1*real(sm.eigenvalues))
+        stiffness_ratios[i, j] = maximum(real_eigs)/minimum(real_eigs)
+
         result, timmings["DAE_solve"][j] = @timed execute!(sim_trip_gen, IDA(), saveat=0.01)
 
         ts = sim_trip_gen.solution.t
@@ -241,3 +246,4 @@ CSV.write("results/reservoir_size/freq_test_errors.csv", DataFrame(test_freq_err
 CSV.write("results/reservoir_size/rocof_test_errors.csv", DataFrame(test_rocof_error, :auto), header = false)
 CSV.write("results/reservoir_size/nadir_test_errors.csv", DataFrame(test_nadir_error, :auto), header = false)
 CSV.write("results/reservoir_size/solve_time.csv", timmings_df)
+CSV.write("results/reservoir_size/stiff_ratio_op.csv", DataFrame(stiffness_ratios, :auto), header = false)
