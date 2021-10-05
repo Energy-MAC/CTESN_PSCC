@@ -15,6 +15,8 @@ using Distributed
 using Surrogates
 using CSV
 using DataFrames
+using Random
+Random.seed!(1234)
 gr()
 
 function build_surrogate(sys, bus_cap, lb, ub, resSize, sample_points, total_power)
@@ -52,13 +54,9 @@ function build_surrogate(sys, bus_cap, lb, ub, resSize, sample_points, total_pow
     tspan = sim_trip_gen.simulation_inputs.tspan   # Get time span from problem 
     N = size(sim_trip_gen.solution.u[1], 1) # Get number of states
 
-    # Win = randn(N, resSize)'  # Build read in matrix for reservior
-    # r0 = randn(resSize) # Randomly initialize initial condition of reservoir
-    # A = erdos_renyi(resSize,resSize)  # Build sparsely connected matrix of reservoir
-    
-    r0 = vec(Matrix(DataFrame(CSV.File("fixed_matrices/r0.csv", header=false))))
-    Win = Matrix(DataFrame(CSV.File("fixed_matrices/Win.csv", header=false)))
-    A = loadgraph("fixed_matrices/mygraph.lgz")
+    Win = randn(N, resSize)'  # Build read in matrix for reservior
+    r0 = randn(resSize) # Randomly initialize initial condition of reservoir
+    A = erdos_renyi(resSize,resSize, seed=1234)  # Build sparsely connected matrix of reservoir
  
     func(u, p, t) = tanh.(A*u .+ Win*(sim_trip_gen.solution(t)))  # Build dynanics of reservoir
     rprob = ODEProblem(func, r0, tspan, nothing) 
@@ -124,31 +122,13 @@ function predict(p, f, rsol, ts, N, resSize)
     pred
 end
 
-function dyn_gen_genrou(generator)
-    return PSY.DynamicGenerator(
-        name = get_name(generator),
-        ω_ref = 1.0, #ω_ref
-        machine = machine_genrou(), #machine
-        shaft = shaft_genrou(), #shaft
-        avr = avr_type1(), #avr
-        prime_mover = tg_type1(), #tg
-        pss = pss_none(),
-    ) #pss
-end
 
-file_dir = joinpath(pwd(), "data",)
-include(joinpath(file_dir, "system_models.jl"))
+file_dir = joinpath(abspath(joinpath(pwd(), "..")), "data",)
 include(joinpath(file_dir, "dynamic_test_data.jl"))
+include(joinpath(file_dir, "inverter_models.jl"))
+include(joinpath(file_dir, "system_models.jl"))
 
 resSize=3000 # Size of the reservoir
-Num_States = 186
-Win = randn(Num_States, resSize)'  # Build read in matrix for reservior
-r0 = randn(resSize) # Randomly initialize initial condition of reservoir
-A = erdos_renyi(resSize,resSize)  # Build sparsely connected matrix of reservoir
-
-CSV.write("fixed_matrices/Win.csv", DataFrame(Win, :auto), header = false)
-CSV.write("fixed_matrices/r0.csv", DataFrame(r0', :auto), header = false)
-savegraph("fixed_matrices/mygraph.lgz", A)
 
 
 sample_vals = [0.25 0.3; 0.25 0.8; 0.6 0.3; 0.6 0.8] # Number of times to sample the parameter space to calculate readout matrices

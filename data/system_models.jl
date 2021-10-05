@@ -1,11 +1,3 @@
-file_dir = joinpath(
-    pwd(),
-    "data",
-)
-
-include(joinpath(file_dir, "inverter_models.jl"))
-include(joinpath(file_dir, "dynamic_test_data.jl"))
-
 function buid_system()
 
     sys = System(joinpath(file_dir, "14bus.raw"))#, joinpath(file_dir, "dyn_data.dyr"))
@@ -115,4 +107,16 @@ function change_ibr_penetration(sys, GF, Gf, ibr_bus, bus_capacity, total_power)
     
     return sys
 
+end
+
+function dyn_gen_genrou(generator)
+    return PSY.DynamicGenerator(
+        name = get_name(generator),
+        ω_ref = 1.0, #ω_ref
+        machine = machine_genrou(), #machine
+        shaft = shaft_genrou(), #shaft
+        avr = avr_type2(), #avr
+        prime_mover = tg_type1(), #tg
+        pss = pss_none(),
+    ) #pss
 end

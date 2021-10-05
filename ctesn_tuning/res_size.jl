@@ -15,6 +15,8 @@ using Distributed
 using Surrogates
 using CSV
 using DataFrames
+using Random
+Random.seed!(1234)
 gr()
 
 function build_surrogate(sys, bus_cap, lb, ub, resSize, sample_points, total_power)
@@ -59,7 +61,7 @@ function build_surrogate(sys, bus_cap, lb, ub, resSize, sample_points, total_pow
 
     Win = randn(N, resSize)'  # Build read in matrix for reservior
     r0 = randn(resSize) # Randomly initialize initial condition of reservoir
-    A = erdos_renyi(resSize,resSize)  # Build sparsely connected matrix of reservoir
+    A = erdos_renyi(resSize,resSize, seed=1234)  # Build sparsely connected matrix of reservoir
 
  
     func(u, p, t) = tanh.(A*u .+ Win*((sim_trip_gen.solution(t)[state_index]) .-1) ./ 0.02)   # Build dynanics of reservoir

@@ -17,6 +17,8 @@ using CSV
 using DataFrames
 using Statistics
 using SharedArrays
+using Random
+Random.seed!(1234)
 gr()
 
 function build_surrogate(sys, bus_cap, lb, ub, resSize, sample_points, total_power)
@@ -56,19 +58,16 @@ function build_surrogate(sys, bus_cap, lb, ub, resSize, sample_points, total_pow
     deleteat!(gen_names, findall(x->x=="generator-2-Trip",gen_names))
     global_state_index = PSID.get_global_index(sim_trip_gen.simulation_inputs);
     state_index = [get(global_state_index[g], :ω, 0) for g in gen_names]
+    N = length(state_index)
     
-    # Win = randn(N, resSize)'  # Build read in matrix for reservior
-    # r0 = randn(resSize) # Randomly initialize initial condition of reservoir
-    # A = erdos_renyi(resSize,resSize)  # Build sparsely connected matrix of reservoir
-    
-    r0 = vec(Matrix(DataFrame(CSV.File("fixed_matrices/r0.csv", header=false))))
-    Win = Matrix(DataFrame(CSV.File("fixed_matrices/Win.csv", header=false)))
-    A = loadgraph("fixed_matrices/mygraph.lgz")
+    Win = randn(N, resSize)'  # Build read in matrix for reservior
+    r0 = randn(resSize) # Randomly initialize initial condition of reservoir
+    A = erdos_renyi(resSize,resSize, seed=1234)  # Build sparsely connected matrix of reservoir
  
     func(u, p, t) = tanh.(A*u .+ Win*((sim_trip_gen.solution(t)[state_index]) .-1) ./ 0.02)   # Build dynanics of reservoir
     rprob = ODEProblem(func, r0, tspan, nothing) 
     rsol = solve(rprob, Tsit5(), saveat = sim_trip_gen.solution.t)  # Simulate reservoir being driven by nominal soltuion of the system 
-    N = 5
+
     
     # The two parametes are 1) the % of IBR at each node and 2) the % of those IBR that are grid-forming
     param_samples = QuasiMonteCarlo.sample(sample_points, lb, ub, QuasiMonteCarlo.SobolSample()) # Sample parameter sapce
@@ -155,7 +154,7 @@ sample_vals = 40
 
 LB = [0.1, 0.1] # Lower-bounds on the 1) % of IBR at each node and 2) % of those IBR that are grid-forming
 UB = [0.7, 1] # Upper-bounds on the 1) % of IBR at each node and 2) % of those IBR that are grid-forming
-resSize=3000  # Size of the reservoir
+resSize=1000  # Size of the reservoir
 
 gen = PSY.get_component(ThermalStandard, sys, "generator-2-Trip")
 PSY.set_available!(gen, true)
