@@ -1,6 +1,5 @@
-# using Pkg
-# Pkg.activate(".")
-# pkg.instantiate()
+using Pkg
+Pkg.activate(".")
 using PowerSimulationsDynamics
 PSID = PowerSimulationsDynamics
 using PowerSystems
