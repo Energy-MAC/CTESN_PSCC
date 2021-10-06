@@ -166,7 +166,7 @@ deleteat!(gen_names, findall(x->x=="generator-2-Trip",gen_names))
 for i in 1:length(sample_vals)
     gen = PSY.get_component(ThermalStandard, sys, "generator-2-Trip")
     PSY.set_available!(gen, true)
-    global sys=change_ibr_penetration(sys, GF_test, Gf_test, ibr_bus, bus_cap, total_power) # Set IBR% prior to building surrogate 
+    global sys=change_ibr_penetration(sys, GF, Gf, ibr_bus, bus_cap, total_power) # Set IBR% prior to building surrogate 
     surr, resSol, N = build_surrogate(sys, bus_cap, LB, UB, resSize, sample_vals[i], total_power) 
 
     test_params = QuasiMonteCarlo.sample(test_size, LB, UB, QuasiMonteCarlo.SobolSample()) # Sample parameter sapce
