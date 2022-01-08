@@ -34,9 +34,9 @@ rSol, N, stateIndex, simStep = simulate_reservoir(sys, resSize, maxSimStep);
 
 testParams = QuasiMonteCarlo.sample(testSize, LB, UB, QuasiMonteCarlo.SobolSample()) # Sample parameter sapce
 
-freq_error=zeros(length(trainSizes),testSize)
-rocof_error=zeros(length(trainSizes),testSize)
-nadir_error=zeros(length(trainSizes),testSize)
+freq_error=zeros(testSize, length(trainSizes))
+rocof_error=zeros(testSize,length(trainSizes))
+nadir_error=zeros(testSize,length(trainSizes))
 
 for i in 1:length(trainSizes)
     
@@ -60,37 +60,37 @@ for i in 1:length(trainSizes)
 
         execute!(sim, IDA())
    
-        sol_array = Array(sim.results.solution(interpolateSol)) # Convert physcial solution to an array
+        sol_array = Array(sim.results.solution(interpolateTime)) # Convert physcial solution to an array
         pred = linear_predict([testParams[1,j], testParams[2,j]], surr, rSol, simStep, N, resSize)
         resamplePred=transpose(reduce(hcat, [LinearInterpolation(simStep, pred[i, :]).(interpolateTime) for i in 1:size(pred)[1]]))
                 
-        nadir_error[i,j]=minimum(sol_array[stateIndex, :]) - minimum(pred) # Find difference between lowest predicted frequency and actual lowest frequency
-        freq_error[i,j]=norm(sol_array[stateIndex, :] - resamplePred, Inf) # Find the largest error
-        rocof_error[i,j]=(minimum(diff(sol_array[stateIndex, :], dims=2))-minimum(diff(resamplePred, dims=2)))/interpolateStep # Find the largest error of numerically 
+        nadir_error[j,i]=minimum(sol_array[stateIndex, :]) - minimum(pred) # Find difference between lowest predicted frequency and actual lowest frequency
+        freq_error[j,i]=norm(sol_array[stateIndex, :] - resamplePred, Inf) # Find the largest error
+        rocof_error[j,i]=(minimum(diff(sol_array[stateIndex, :], dims=2))-minimum(diff(resamplePred, dims=2)))/interpolateStep # Find the largest error of numerically 
     end
 end
 
-nadir_plot=boxplot(freq_base*nadir_error[1,:], label="", xlabel="Training Size", ylabel="Nadir prediction error [Hz]")
+nadir_plot=boxplot(freq_base*nadir_error[:,1], label="", xlabel="Training Size", ylabel="Nadir prediction error [Hz]")
 for i in 2:length(trainSizes)
-    boxplot!(freq_base*nadir_error[i,:], label="")
+    boxplot!(freq_base*nadir_error[:, i], label="")
 end
 xticks!([1:1:length(trainSizes);], string.(trainSizes))
 savefig("results/figs/trasinSizeNadirError.pdf")
 
-max_error_plot=boxplot(freq_base*freq_error[1,:], label="", xlabel="Training Size", ylabel="Maximum prediction error [Hz]")
+max_error_plot=boxplot(freq_base*freq_error[:,1], label="", xlabel="Training Size", ylabel="Maximum prediction error [Hz]")
 for i in 2:length(trainSizes)
-    boxplot!(freq_base*freq_error[i,:], label="")
+    boxplot!(freq_base*freq_error[:,i], label="")
 end
 xticks!([1:1:length(trainSizes);], string.(trainSizes))
 savefig("results/figs/trasinSizeMaxError.pdf")
 
-rocog_plot=boxplot(freq_base*rocof_error[1,:], label="", xlabel="Training Size", ylabel="Maximum RoCoF error [Hz/s]")
+rocof_plot=boxplot(freq_base*rocof_error[:,1], label="", xlabel="Training Size", ylabel="Maximum RoCoF error [Hz/s]")
 for i in 2:length(trainSizes)
-    boxplot!(freq_base*rocof_error[i,:], label="")
+    boxplot!(freq_base*rocof_error[:,i], label="")
 end
 xticks!([1:1:length(trainSizes);], string.(trainSizes))
 savefig("results/figs/trasinSizeMaxError.pdf")
 
-CSV.write("results/data/freq_test_errors.csv", DataFrame(test_freq_error, :auto), header = false)
-CSV.write("results/data/rocof_test_errors.csv", DataFrame(test_rocof_error, :auto), header = false)
-CSV.write("results/data/nadir_test_errors.csv", DataFrame(test_nadir_error, :auto), header = false)
+CSV.write("results/data/freq_test_errors.csv", DataFrame(freq_error, :auto), header = string.(trainSizes))
+CSV.write("results/data/rocof_test_errors.csv", DataFrame(rocof_error, :auto), header = string.(trainSizes))
+CSV.write("results/data/nadir_test_errors.csv", DataFrame(nadir_error, :auto), header = string.(trainSizes))
