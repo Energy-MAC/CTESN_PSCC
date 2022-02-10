@@ -1,5 +1,6 @@
 using Pkg
 Pkg.activate(".")
+ENV["GKSwstype"] = "100"
 using PowerSimulationsDynamics
 PSID = PowerSimulationsDynamics
 using PowerSystems
@@ -26,7 +27,7 @@ include(joinpath(file_dir, "models/system_models.jl"))
 include(joinpath(file_dir, "ctesn_functions.jl"))
 include(joinpath(file_dir, "experimentParameters.jl"))
 
-sys, busCap, totalPower = buid_system(ibrBus, GF, Gf);   # Build the system
+global sys, busCap, totalPower = buid_system(ibrBus, GF, Gf);   # Build the system
 gen = PSY.get_component(PSY.DynamicGenerator, sys, "generator-2-Trip")
 genTrip = GeneratorTrip(tripTime, gen)
 
@@ -40,14 +41,14 @@ nadir_error=zeros(testSize,length(trainSizes))
 
 for i in 1:length(trainSizes)
     
-    trainParams, Wouts, surr = linear_mapping(sys, busCap, LB, UB, trainSizes[i], totalPower, rSol, stateIndex, simStep);
-    betaSurr = RadialBasis(trainParams, Wouts, LB, UB, rad = linearRadial)
+    trainParams, Wouts, surr = nonlinear_mapping(sys, busCap, LB, UB, trainSizes[i], totalPower, rSol, stateIndex, simStep);
+    betaSurr = RadialBasis(trainParams, Wouts, LB, UB, rad = cubicRadial)
     
     for j in 1:testSize
         Gf=testParams[1,j]*(1-testParams[2,j]) # Grid following %
         GF=testParams[1,j]*testParams[2,j] # Grid forming %
         
-        sys=change_ibr_penetration(sys, GF, Gf, ibrBus, busCap, totalPower) # Change generation mix at each of the IBR nodes
+        global sys=change_ibr_penetration(sys, GF, Gf, ibrBus, busCap, totalPower) # Change generation mix at each of the IBR nodes
         sim = Simulation!(
             ResidualModel, #Type of model used
             sys,         #system
@@ -61,7 +62,7 @@ for i in 1:length(trainSizes)
         execute!(sim, IDA())
    
         sol_array = Array(sim.results.solution(interpolateTime)) # Convert physcial solution to an array
-        pred=nonlinear_predict([testParams[1,j], testParams[2,j], betaSurr, surr, rSol, simStep, N, resSize)
+        pred=nonlinear_predict(testParams[:,j], betaSurr, surr, rSol, simStep, N, resSize)
         resamplePred=transpose(reduce(hcat, [LinearInterpolation(simStep, pred[i, :]).(interpolateTime) for i in 1:size(pred)[1]]))
                 
         nadir_error[j,i]=minimum(sol_array[stateIndex, :]) - minimum(pred) # Find difference between lowest predicted frequency and actual lowest frequency

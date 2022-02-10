@@ -1,5 +1,6 @@
 using Pkg
 Pkg.activate(".")
+ENV["GKSwstype"] = "100"
 using PowerSimulationsDynamics
 PSID = PowerSimulationsDynamics
 using PowerSystems
