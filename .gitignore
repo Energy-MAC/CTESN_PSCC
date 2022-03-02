@@ -1,3 +1,5 @@
 *ipynb
 **.ipynb_checkpoints/
 *.log
+results/figs/*
+results/data/*

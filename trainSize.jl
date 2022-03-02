@@ -48,7 +48,7 @@ for i in 1:length(trainSizes)
         Gf=testParams[1,j]*(1-testParams[2,j]) # Grid following %
         GF=testParams[1,j]*testParams[2,j] # Grid forming %
         
-        sys=change_ibr_penetration(sys, GF, Gf, ibrBus, busCap, totalPower) # Change generation mix at each of the IBR nodes
+        global sys=change_ibr_penetration(sys, GF, Gf, ibrBus, busCap, totalPower) # Change generation mix at each of the IBR nodes
         sim = Simulation!(
             ResidualModel, #Type of model used
             sys,         #system
