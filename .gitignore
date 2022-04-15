@@ -3,3 +3,6 @@
 *.log
 results/figs/*
 results/data/*
+.ipynb_checkpoints
+src/models/json_files/*
+LocalPreferences.toml
