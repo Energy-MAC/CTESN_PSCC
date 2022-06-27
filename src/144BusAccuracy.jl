@@ -28,7 +28,8 @@ include(joinpath(file_dir, "ctesn_functions.jl"))
 include(joinpath(file_dir, "experimentParameters.jl")) # This is where all the experimental variables are defined
 
 sysSize = 144
-testSize=50
+testSize= 50
+trainSamples = 25
 sys = build_system(sysSize)
 
 busCap, totalGen, ibrBus, ibrGen, syncGen = getSystemProperties(sys);
@@ -36,7 +37,7 @@ busCap, totalGen, ibrBus, ibrGen, syncGen = getSystemProperties(sys);
 gen = [gen for gen in syncGen if occursin("Trip", gen.name)][1]
 genTrip = GeneratorTrip(tripTime, PSY.get_component(PSY.DynamicGenerator, sys, gen.name))
 
-rSol, N, stateIndex, stateLabels, simStep, resSize = simulate_reservoir(sys, maxSimStep, genTrip, gen.name); # Simulate system and use solution to drive reservoir
+rSol, N, stateIndex, stateLabels, simStep, resSize, res_time = simulate_reservoir(sys, maxSimStep, genTrip, gen.name); # Simulate system and use solution to drive reservoir
 rSol = reduce(hcat, rSol.(simStep))
 numSteps = length(simStep);
 freqIndex= 1:length(syncGen)-1
@@ -72,6 +73,6 @@ freq_rmse=reduce(vcat, freq_rmse)
 v_rmse=reduce(vcat, v_rmse)
 i_rmse=reduce(vcat, i_rmse);
 
-CSV.write("results/data/114CtesnFreqErrors.csv", DataFrame(freq_rmse, :auto), header = ["Frequency"])
-CSV.write("results/data/114CtesnVoltageErrors.csv", DataFrame( v_rmse, :auto), header = ["Voltage"])
-CSV.write("results/data/114CtesnCurrentErrors.csv", DataFrame(i_rmse, :auto), header = ["Current"])
+CSV.write("results/data/144CtesnFreqErrors.csv", DataFrame(freq_rmse, :auto), header = ["Frequency"])
+CSV.write("results/data/144CtesnVoltageErrors.csv", DataFrame( v_rmse, :auto), header = ["Voltage"])
+CSV.write("results/data/144CtesnCurrentErrors.csv", DataFrame(i_rmse, :auto), header = ["Current"])

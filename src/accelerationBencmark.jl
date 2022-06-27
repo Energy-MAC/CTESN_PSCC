@@ -29,6 +29,7 @@ include(joinpath(file_dir, "experimentParameters.jl"))
 
 psid_times = []
 ctesn_times = []
+train_times = []
 
 testParams = QuasiMonteCarlo.sample(acc_test_size, LB, UB, QuasiMonteCarlo.SobolSample()) # Sample parameter sapce to generate test samples
 
@@ -41,26 +42,29 @@ for sysSize in sysSizes
     tripGen = [gen for gen in syncGen if occursin("Trip", gen.name)][1]
     genTrip = GeneratorTrip(tripTime, PSY.get_component(PSY.DynamicGenerator, sys, tripGen.name))
 
-    rSol, N, stateIndex, simStep, resSize = simulate_reservoir(sys, maxSimStep, genTrip, tripGen.name);
+    rSol, N, stateIndex, stateLabels, simStep, resSize, res_time = simulate_reservoir(sys, maxSimStep, genTrip, tripGen.name);
+    rSol = reduce(hcat, rSol.(simStep))
 
-    trainParams, rbfWeights, surr = nonlinear_mapping!(sys, busCap, ibrBus, LB, UB, trainSamples, totalGen, rSol, stateIndex, simStep, genTrip); # Get RBF weights, trainParams, that map r(t) to x(t)
+    total_train_time = @elapsed trainParams, rbfWeights, surr, psid_time = nonlinear_mapping!(sys, busCap, ibrBus, LB, UB, trainSamples, totalGen, rSol, stateIndex, simStep, genTrip, true); # Get RBF weights, trainParams, that map r(t) to x(t)
     D = SURR._construct_rbf_interp_matrix(surr.x, first(surr.x), surr.lb, surr.ub, surr.phi, surr.dim_poly, surr.scale_factor, surr.sparse)
 
-    betaSurr = RadialBasis(trainParams, rbfWeights, LB, UB, rad = cubicRadial) # Build RBF that maps parmaters, p, to trainParams 
+    beta_rbf_train_time = @elapsed betaSurr = RadialBasis(trainParams, rbfWeights, LB, UB, rad = cubicRadial) # Build RBF that maps parmaters, p, to trainParams 
 
-    psid_time = simSystem!.(Ref(sys), eachcol(testParams), Ref(ibrBus), Ref(busCap), Ref(totalGen), Ref(simStep), Ref(genTrip), Ref(true))
     psid_time=reduce(hcat, psid_time)
 
     numSteps = length(simStep)
     ctesn_time = @elapsed predict=nonlinear_predict.(eachcol(testParams), Ref(surr), Ref(betaSurr), Ref(D), Ref(numSteps))
 
+    train_time =  res_time + (total_train_time-sum(psid_time[3, :])) + beta_rbf_train_time
+
     push!(psid_times, psid_time)
     push!(ctesn_times, ctesn_time)
+    push!(train_times, train_time)
 
 end
 
 psid_mean = [mean(run[3, :]) for run in psid_times]
-ctesn_mean = ctesn_times/acc_test_size
+ctesn_mean = ctesn_times ./acc_test_size
 acc = psid_mean ./ ctesn_mean
 
-CSV.write("results/data/timingBenchmarkResults.csv", DataFrame(hcat(sysSizes, psid_mean, ctesn_mean, acc), :auto), header = ["SystemSize", "PSID", "CTESN", "Acceleration"])
+CSV.write("results/data/timingBenchmarkResults.csv", DataFrame(hcat(sysSizes, train_times, psid_mean, ctesn_mean, acc), :auto), header = ["SystemSize", "Train Time", "PSID", "CTESN", "Acceleration"])

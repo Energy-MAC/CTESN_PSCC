@@ -46,9 +46,9 @@ function simulate_reservoir(sys, maxStep, perturb, tripName)
  
     func(u, p, t) = vec(tanh.(A*u .+ Win*((sim.results.solution(t)[state_index] .-state_mean) ./ state_std)))   # Build dynanics of reservoir
     rprob = ODEProblem(func, r0, tspan, nothing) # Build ODE problem
-    rsol = solve(rprob, Tsit5())  # Simulate reservoir being driven by nominal soltuion of the system 
+    res_time= @elapsed rsol = solve(rprob, Tsit5())  # Simulate reservoir being driven by nominal soltuion of the system 
 
-    rsol, N, state_index, state_labels, sol_t, resSize
+    rsol, N, state_index, state_labels, sol_t, resSize, res_time
 end
     
 function linear_mapping(sys, busCap, lb, ub, trainSize, totalPower, rSol, stateIndex, simStep)
@@ -86,7 +86,7 @@ function linear_predict(p, f, rSol, simStep, N, resSize)
 end
 
 
-function nonlinear_mapping!(sys, busCap, ibrBus, lb, ub, trainSize, totalPower, R, stateIndex, simStep, perturb)
+function nonlinear_mapping!(sys, busCap, ibrBus, lb, ub, trainSize, totalPower, R, stateIndex, simStep, perturb, timeSim=false)
     
     # The two parametes are 1) the % of IBR at each node and 2) the % of those IBR that are grid-forming
     boundarySamples=reduce(hcat, vec([[x;y] for x in [lb[1], ub[1]], y in [lb[2], ub[2]]])) # Determinstically sample the corners of the parameter space
@@ -97,33 +97,41 @@ function nonlinear_mapping!(sys, busCap, ibrBus, lb, ub, trainSize, totalPower, 
     resLB=vec(minimum(R, dims=2)); # Get maximum of reservoir soltuion across all dimensions -> Needed to build RBF
     rbfInput = [R[:,i] for i in 1:size(R,2)]; # Solution of reservoir as vector of vectors
     
-    function get_W_rbf(p, rbfInput, resLB, resUB)
+    function get_W_rbf(p, rbfInput, resLB, resUB, timeSim)
         
-        simResults = simSystem!(sys, p, ibrBus, busCap, totalPower, simStep, perturb)
+        if timeSim==true
+            simResults, psid_time = simSystem!(sys, p, ibrBus, busCap, totalPower, simStep, perturb, timeSim)
+        else
+            simResults = simSystem!(sys, p, ibrBus, busCap, totalPower, simStep, perturb, timeSim)
+        end
         
-        #R = reduce(hcat, rSol.(simStep)) # Get solution of reservoir
         S = simResults[stateIndex, :] # Get solution of physical system
 
         Output = [S[:,i] for i in 1:size(S,2)]; # Solution of pysical system as vector of vectors
         
         surr = RadialBasis(rbfInput, Output, resLB, resUB, rad = linearRadial) # Fit RBF function that maps from solution of reservoir to solution of true system
         beta = surr.coeff # Get the weights of the fitted RBF function
-        beta, surr, R, S # Return the weights, surrogate, R and S
+        
+        if timeSim==true
+            return beta, surr, R, S, psid_time # Return the weights, surrogate, R and S
+        else
+            return beta, surr, R, S # Return the weights, surrogate, R and S
+        end
     end
 
-    res = pmap(x -> get_W_rbf(trainSamples[:,x], rbfInput, resLB, resUB), 1:trainSize) # Distribute computation among all available workers
+    res = pmap(x -> get_W_rbf(trainSamples[:,x], rbfInput, resLB, resUB, timeSim), 1:trainSize) # Distribute computation among all available workers
     Woutparams = [trainSamples[:,i] for i = 1:size(trainSamples, 2)] # Get training samples
-    Wouts = map(x -> x[1], res) # get RBF weights from returned res object
+    rbf_weights = map(x -> x[1], res) # get RBF weights from returned res object
+    if timeSim==true
+        psid_times = map(x -> x[5], res) # get RBF weights from returned res object
+    end
     surr=res[1][2] # Get one of the fitted surrogates 
-    Woutparams, Wouts, surr
+    if timeSim==true
+        return Woutparams, rbf_weights, surr, psid_times # Return the weights, surrogate, R and S
+    else
+        return Woutparams, rbf_weights, surr # Return the weights, surrogate, R and S
+    end
 end
-
-# function nonlinear_predict(p, betaSurr, Surr, rSol, simStep, N, resSize)
-#     weights=reshape(betaSurr(p), size(Surr.coeff)[1], size(Surr.coeff)[2]) # Re-shape the weigths to pass to the surrogates
-#     Surr.coeff = weights # Assign the parameter dependent weights to the RBF
-#     pred = reduce(hcat, Surr.(rSol(simStep).u)) # Predict the response of the system
-#     pred
-# end
 
 function nonlinear_predict(p, Surr, betaSurr, D, numSteps)
     weights=reshape(betaSurr(p), size(Surr.coeff)[1], size(Surr.coeff)[2]) # Re-shape the weigths to pass to the surrogates
@@ -152,7 +160,7 @@ function simSystem!(sys, params, ibrBus, busCap, totalPower, simStep, perturb, t
 
     total_sim_time = build_time + sim.results.time_log[:timed_solve_time]
     if timeSim==true
-        return [build_time, sim.results.time_log[:timed_solve_time], total_sim_time]
+        return Array(sim.results.solution(simStep)), [build_time, sim.results.time_log[:timed_solve_time], total_sim_time]
     else
         return Array(sim.results.solution(simStep))
     end

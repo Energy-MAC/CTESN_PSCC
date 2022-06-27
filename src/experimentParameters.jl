@@ -1,6 +1,6 @@
 freq_base=60 # Base frequency
 maxSimStep=1.0 # Max step in the power simualtion
-trainSizes = [15:5:30;] # Number of times to sample the parameter space for training CTESN _> Used in trainSize.jl
+trainSizes = [15:5:20;] # Number of times to sample the parameter space for training CTESN _> Used in trainSize.jl
 LB = [0.1, 0.1] # Lower-bounds on the 1) % of IBR at each node and 2) % of those IBR that are grid-forming (Not-ML)
 UB = [0.8, 0.4] # Upper-bounds on the 1) % of IBR at each node and 2) % of those IBR that are grid-forming (Not-ML)
 testSize=200 # Test size for benchmarking CTESN performance
@@ -17,5 +17,5 @@ trip_gen=0.04
 H_min=5
 D_min= 1.8
 sysSizes = [18, 36, 72, 144]
-acc_test_size=10
+acc_test_size=20
 Random.seed!(1234)
