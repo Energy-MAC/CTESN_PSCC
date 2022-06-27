@@ -1,0 +1,21 @@
+freq_base=60 # Base frequency
+maxSimStep=1.0 # Max step in the power simualtion
+trainSizes = [15:5:20;] # Number of times to sample the parameter space for training CTESN _> Used in trainSize.jl
+LB = [0.1, 0.1] # Lower-bounds on the 1) % of IBR at each node and 2) % of those IBR that are grid-forming (Not-ML)
+UB = [0.8, 0.4] # Upper-bounds on the 1) % of IBR at each node and 2) % of those IBR that are grid-forming (Not-ML)
+testSize=200 # Test size for benchmarking CTESN performance
+tStop=80.0 # End time of simualtion (Not-ML)
+tspan=(0.0, tStop) # Time duration of simualtion (Not-ML)
+interpolateStep=0.1 # Granularity to compare true soltuion to CTESN
+interpolateTime=0.0:interpolateStep:tStop
+tripTime=10.0 # Time at which we disconnect a syncronous machine (Not-ML)
+sample_points=[0.6 0.34; 0.6 0.17; 0.2 0.17] # Sample test points used to compare predicted to true solution in sampleTraces.jl
+trainSamples = 20 # Training size for training CTESN -> Used in parameterSweep.jl
+paramSweepStep=0.01 # Discretization of parameter space -> Used in parameterSweep.jl
+settlingBand=0.000333 # Envelope within we consider system frequency to have settled (Not-ML)
+trip_gen=0.04
+H_min=5
+D_min= 1.8
+sysSizes = [18, 36, 72, 144]
+acc_test_size=20
+Random.seed!(1234)

@@ -153,7 +153,7 @@ shaft_no_damping() = SingleMass(
     0.0,
 ) #D
 
-shaft_genrou() = SingleMass(H = 5+rand(1)[1], D = 0.05)
+shaft_genrou() = SingleMass(H = 5+rand(1)[1], D = 1)
 
 shaft_fivemass() = FiveMassShaft(
     3.01, #5.148, #H
