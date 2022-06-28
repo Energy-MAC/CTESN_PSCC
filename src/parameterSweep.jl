@@ -1,5 +1,5 @@
-using Pkg
-Pkg.activate(".")
+#using Pkg
+#Pkg.activate(".")
 using PowerSimulationsDynamics
 PSID = PowerSimulationsDynamics
 using PowerSystems
@@ -64,28 +64,28 @@ rocof = [minimum(diff(resamplePred[i][freqIndex, :], dims=2))/interpolateStep fo
 settling_time = [getSettlingTime(resamplePred[i][freqIndex, :]) for i in 1:size(predict)[1]]
 
 fig=Figure()
-ax, hm = heatmap(fig[1, 1], 100*paramMatrix[1,:], 100*paramMatrix[2,:], freq_base*nadir)
+ax, hm = CairoMakie.heatmap(fig[1, 1], 100*paramMatrix[1,:], 100*paramMatrix[2,:], freq_base*nadir)
 Colorbar(fig[1, 2], hm, label="Frequency Nadir [Hz]")
 ax.ylabel = "% of CIG that are GF"
 ax.xlabel = "% CIG"
-fig 
-#savefig("results/figs/nadir_heatmap.pdf")
+fig
+CairoMakie.save("results/figs/nadir_heatmap.pdf", fig)
 
 fig=Figure()
-ax, hm = heatmap(fig[1, 1], 100*paramMatrix[1,:], 100*paramMatrix[2,:], freq_base*rocof)
+ax, hm = CairoMakie.heatmap(fig[1, 1], 100*paramMatrix[1,:], 100*paramMatrix[2,:], freq_base*rocof)
 Colorbar(fig[1, 2], hm, label="RoCoF [Hz/s]")
 ax.ylabel = "% of CIG that are GF"
 ax.xlabel = "% CIG"
 fig 
-#savefig("results/figs/rocof_heatmap.pdf")
+CairoMakie.save("results/figs/rocof_heatmap.pdf", fig)
 
 fig=Figure()
-ax, hm = heatmap(fig[1, 1], 100*paramMatrix[1,:], 100*paramMatrix[2,:], settling_time)
+ax, hm = CairoMakie.heatmap(fig[1, 1], 100*paramMatrix[1,:], 100*paramMatrix[2,:], settling_time)
 Colorbar(fig[1, 2], hm, label="Settling Time [s]")
 ax.ylabel = "% of CIG that are GF"
 ax.xlabel = "% CIG"
 fig 
-#savefig("results/figs/settlingTime_heatmap.pdf")
+CairoMakie.save("results/figs/settlingTime_heatmap.pdf", fig)
 
 
 open("results/data/heatmap.dat", "w") do io
