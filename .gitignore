@@ -1,8 +1,9 @@
 *ipynb
 **.ipynb_checkpoints/
 *.log
-results/figs/*
-results/data/*
 .ipynb_checkpoints
 src/models/json_files/*
 LocalPreferences.toml
+
+#Mac temp ignores
+.DS_Store
