@@ -4,7 +4,6 @@
 .ipynb_checkpoints
 src/models/json_files/*
 LocalPreferences.toml
-Manifest.toml
 
 #Mac temp ignores
 .DS_Store

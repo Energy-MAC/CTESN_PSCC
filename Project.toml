@@ -24,6 +24,7 @@ OrdinaryDiffEq = "= 6.6.6"
 PowerSimulationsDynamics = "= 0.9.2"
 PowerSystems = "= 1.19.0"
 Surrogates = "= 4.0.0"
+julia = "^1.6"
 
 [extras]
 CPUSummary = "2a0fbf3d-bb9c-48f3-b0a9-814d99fd7ab9"
