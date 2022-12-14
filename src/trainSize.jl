@@ -1,3 +1,9 @@
+#=
+This script examines how the error of the surrogate decreases as the training size increases.
+In this paper we used a space filling approach for generating training samples.
+Future work will examine an active learning approach for minimizing training requirements.
+Details about each function can be found in ctesn_functions.jl or by "?" followed by the function name in REPL 
+=#
 using Pkg
 Pkg.activate(".")
 ENV["GKSwstype"] = "100"
@@ -33,8 +39,8 @@ include(joinpath(file_dir, "experimentParameters.jl")) # This is where all the e
 sys = build_14bus()   # Build the system  
 busCap, totalGen, ibrBus, ibrGen, syncGen = getSystemProperties(sys);
 
-gen = PSY.get_component(PSY.DynamicGenerator, sys, "generator-2-Trip") # Get the generator we want to disconnect (Not-ML)
-genTrip = GeneratorTrip(tripTime, gen) # Build perturbation to trip generator (Not-ML)
+gen = PSY.get_component(PSY.DynamicGenerator, sys, "generator-2-Trip") # Get the generator we want to disconnect 
+genTrip = GeneratorTrip(tripTime, gen) # Build perturbation to trip generator 
 
 rSol, N, stateIndex, stateLabels, simStep, resSize = simulate_reservoir(sys, maxSimStep, genTrip, gen.name); # Simulate system and use solution to drive reservoir
 rSol = reduce(hcat, rSol.(simStep))

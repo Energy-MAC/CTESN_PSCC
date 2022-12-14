@@ -1,3 +1,7 @@
+#=
+This script examines the accuracy of the porposed approach for larger systems, a 144 bus power system model.
+Details about each function can be found in ctesn_functions.jl or by "?" followed by the function name in REPL 
+=#
 using Pkg
 Pkg.activate(".")
 ENV["GKSwstype"] = "100"

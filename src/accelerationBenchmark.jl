@@ -1,3 +1,7 @@
+#=
+This script examines the computational acceleration of the propsoed approach for different sized systems.
+Details about each function can be found in ctesn_functions.jl or by "?" followed by the function name in REPL 
+=#
 using Pkg
 Pkg.activate(".")
 using PowerSimulationsDynamics
@@ -25,7 +29,7 @@ Random.seed!(1234)
 file_dir = joinpath(pwd(), "src",)
 include(joinpath(file_dir, "models/system_models.jl"))
 include(joinpath(file_dir, "ctesn_functions.jl"))
-include(joinpath(file_dir, "experimentParameters.jl"))
+include(joinpath(file_dir, "experimentParameters.jl")) # This is where all the experimental variables are defined
 
 psid_times = []
 ctesn_times = []
@@ -45,10 +49,10 @@ for sysSize in sysSizes
     rSol, N, stateIndex, stateLabels, simStep, resSize, res_time = simulate_reservoir(sys, maxSimStep, genTrip, tripGen.name);
     rSol = reduce(hcat, rSol.(simStep))
 
-    total_train_time = @elapsed trainParams, rbfWeights, surr, psid_time = nonlinear_mapping!(sys, busCap, ibrBus, LB, UB, trainSamples, totalGen, rSol, stateIndex, simStep, genTrip, true); # Get RBF weights, trainParams, that map r(t) to x(t)
+    total_train_time = @elapsed trainParams, rbfWeights, surr, psid_time = nonlinear_mapping!(sys, busCap, ibrBus, LB, UB, trainSamples, totalGen, rSol, stateIndex, simStep, genTrip, true); 
     D = SURR._construct_rbf_interp_matrix(surr.x, first(surr.x), surr.lb, surr.ub, surr.phi, surr.dim_poly, surr.scale_factor, surr.sparse)
 
-    beta_rbf_train_time = @elapsed betaSurr = RadialBasis(trainParams, rbfWeights, LB, UB, rad = cubicRadial) # Build RBF that maps parmaters, p, to trainParams 
+    beta_rbf_train_time = @elapsed betaSurr = RadialBasis(trainParams, rbfWeights, LB, UB, rad = cubicRadial) # Fit an RBF to map from parameters to RBF weights
 
     psid_time=reduce(hcat, psid_time)
 

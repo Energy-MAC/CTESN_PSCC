@@ -1,3 +1,7 @@
+#=
+This script generated some sample predicted traces and calcuated their error.
+Details about each function can be found in ctesn_functions.jl or by "?" followed by the function name in REPL 
+=#
 using Pkg
 Pkg.activate(".")
 using PowerSimulationsDynamics
@@ -24,7 +28,7 @@ using Interpolations
 file_dir = joinpath(pwd(), "src",)
 include(joinpath(file_dir, "models/system_models.jl"))
 include(joinpath(file_dir, "ctesn_functions.jl"))
-include(joinpath(file_dir, "experimentParameters.jl"))
+include(joinpath(file_dir, "experimentParameters.jl"))  # This is where all the experimental variables are defined
 
 sys = build_14bus()   # Build the system
 
@@ -47,6 +51,8 @@ predict=nonlinear_predict.(eachrow(testParams), Ref(surr), Ref(betaSurr), Ref(D)
 predict=[transpose(p) for p in predict]
 
 actual = simSystem!.(Ref(sys), eachrow(testParams), Ref(ibrBus), Ref(busCap), Ref(totalGen), Ref(simStep), Ref(genTrip))
+
+# The following code creates some plots to compare predicted to true response and saves the data.
 
 p1 = plot(simStep, freq_base*predict[1][1, :], label="CIG=60% GF=20% Gf=40%", linewidth=3, xlabel="Time [s]", ylabel="Frequency [Hz]", legend=:bottomright)
 plot!(simStep, freq_base*predict[2][1, :], label="CIG=60% GF=10% Gf=50%", linewidth=3)

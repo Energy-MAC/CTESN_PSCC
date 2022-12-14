@@ -1,22 +1,41 @@
-function simulate_reservoir(sys, maxStep, perturb, tripName)
-    ### Lines 2-26 are simulating the physical system (Not-ML)
+"""
+simulate_reservoir(sys, maxStep, perturb, tripName)
 
- 
+Simulates the reservior using a nominal solution of the true physcial system
+
+Inputs
+- sys: Physical power system
+- maxStep: Maximum simulation step of the adaptive ODE solver
+- perturb: System perturbation. This is a loss of generation for this work.
+- tripName: Name of the generator to be tripped
+
+Outputs
+- rsol: Time series solution of the reservoir
+- N: Dimension of state vector to predict
+- state_index: Index of states we want to predict
+- state_labels: State labels
+- sol_t: Vector of timesteps that adaptive ODE solver simulated the system at 
+- resSize: Dimension of the reservoir
+- res_time: Time take to simulate the reservoir
+"""
+function simulate_reservoir(sys, maxStep, perturb, tripName)
+
     sim = Simulation!(
-        ResidualModel, #Type of model used
-        sys,         #system
-        file_dir,       #path for the simulation output
-        tspan, #time span
+        ResidualModel, 
+        sys,         
+        file_dir,       
+        tspan, 
         perturb,
         all_lines_dynamic = true,
-    )
+    ) # PowerSimulationsDynamics.jl function for building the power system
 
-    res = small_signal_analysis(sim)
+    res = small_signal_analysis(sim) # PowerSimulationsDynamics.jl function for checking if system is stable
     
-    execute!(sim, IDA(), dtmax=maxStep, enable_progress_bar = false)
+    execute!(sim, IDA(), dtmax=maxStep, enable_progress_bar = false) # PowerSimulationsDynamics.jl function for simualting the system
 
-    sol_t = unique(sim.results.solution.t)   # Save the time instants the problem solved at (ODE solver chooses these time instants) 
+    sol_t = unique(sim.results.solution.t)  # Save the time instants the problem solved at (ODE solver chooses these time instants) 
     
+    # The next block of code gets the indices and labels of all line current, nodal voltage and machine frequency states
     gen_names = [g.name for g in get_components(Generator, sys)]
     deleteat!(gen_names, findall(x->x==tripName,gen_names))
     freqIndex = [sim.results.global_index[g][:ω] for g in gen_names]
@@ -33,10 +52,12 @@ function simulate_reservoir(sys, maxStep, perturb, tripName)
     state_labels=vcat(gen_names.*"_ω", node_labels.*"_R", node_labels.*"_I", branch_labels.*"_R", branch_labels.*"_I")
     solArray=reduce(hcat, sim.results.solution.u)
     stateSol=solArray[state_index, :]
+
+    # Here we calculate the man and standard deviation of the states to normalize as input to the reservoir
     state_mean = mean(stateSol, dims=2)
     state_std = 3 .* std(stateSol, dims=2)
 
-    N = length(state_index) # Get dimension of state vector we want to predict
+    N = length(state_index) 
 
     resSize = 2*N
 
@@ -50,7 +71,27 @@ function simulate_reservoir(sys, maxStep, perturb, tripName)
 
     rsol, N, state_index, state_labels, sol_t, resSize, res_time
 end
-    
+
+"""
+    linear_mapping(sys, busCap, lb, ub, trainSize, totalPower, rSol, stateIndex, simStep)
+
+Learn a linear mapping from the solution of the reservoir to solution of the true system as a function of parameters
+
+Inputs
+- sys: Physical power system
+- busCap: Generation capacity for each bus in the system
+- lb: lower-bound on the parameter space
+- ub: upper-bound on the parameter space
+- trainSize: Number of true solutions of the system to train on
+- totalPower: Total active power of the system
+- rSol: Solution of the reservoir
+- stateIndex: Index of states we want to predict
+- simStep: Vector of timesteps that the nominal solution was solved at
+
+Outputs
+- Woutparams: Training parameters
+- Wouts: Linear mapping for each parameter set
+"""
 function linear_mapping(sys, busCap, lb, ub, trainSize, totalPower, rSol, stateIndex, simStep)
     
     # The two parametes are 1) the % of IBR at each node and 2) the % of those IBR that are grid-forming 
@@ -79,13 +120,52 @@ function linear_mapping(sys, busCap, lb, ub, trainSize, totalPower, rSol, stateI
     Woutparams, Wouts
 end
 
+"""
+    linear_predict(p, f, rSol, simStep, N, resSize)
+
+Predict the response of the physcial system for parameters outside the training set with a linear mapping
+
+Inputs
+- p: parameters to predict the reponse of system for
+- f: rbf surrogate object
+- rsol: solution of the reservoir
+- simStep: Vector of timesteps that adaptive ODE solver simulated the system at
+- N: Dimension of state vector to predict
+- resSize: Dimension of the reservoir
+
+Outputs
+- pred: Predicted response of the true physical system
+"""
 function linear_predict(p, f, rSol, simStep, N, resSize)
     Woutpred = reshape(f(p), N, resSize)
     pred = Woutpred * reduce(hcat, rSol.(simStep))
     pred
 end
 
+"""
+nonlinear_mapping!(sys, busCap, lb, ub, trainSize, totalPower, rSol, stateIndex, simStep)
 
+Learn a non-linear mapping from the solution of the reservoir to solution of the true system as a funciton of parameters
+
+Inputs
+- sys: Physical power system
+- busCap: Generation capacity for each bus in the system
+- lb: lower-bound on the parameters
+- ub: upper-bound on the parameters
+- trainSize: Number of true solutions of the system to train on
+- totalPower: Total active power of the system
+- R: Solution of the reservoir
+- stateIndex: Index of states we want to predict
+- simStep: Vector of timesteps that the nominal solution was solved at
+- perturb: System perturbation. This is a loss of generation in this case
+- timeSim=false: Flag used to calcualte training time
+
+Outputs
+- Woutparams: Training parameters
+- rbf_weights: Weights of RBF that maps from solution of reservoir to solution of system for each parameter set
+- surr: One of the fitted rbf funcitons
+- psid_times: Optional argument for training time to generate training samples
+"""
 function nonlinear_mapping!(sys, busCap, ibrBus, lb, ub, trainSize, totalPower, R, stateIndex, simStep, perturb, timeSim=false)
     
     # The two parametes are 1) the % of IBR at each node and 2) the % of those IBR that are grid-forming
@@ -133,12 +213,46 @@ function nonlinear_mapping!(sys, busCap, ibrBus, lb, ub, trainSize, totalPower, 
     end
 end
 
+"""
+    nonlinear_predict(p, f, rSol, simStep, N, resSize)
+
+Predict the response of the physcial system for parameters outside the training set with a linear mapping
+
+Inputs
+- p: parameters to predict the reponse of system for
+- Surr: rbf surrogate object to map from reservoir to soltuion of physcial system
+- betaSurr: rbf surrogate object to map from parameters to weights of Surr object
+- D: Radial basis function interpolation matrix from Surr
+- numSteps: Number of timesteps to predict solution of system for
+
+Outputs
+- pred: Predicted response of the true physical system
+"""
 function nonlinear_predict(p, Surr, betaSurr, D, numSteps)
     weights=reshape(betaSurr(p), size(Surr.coeff)[1], size(Surr.coeff)[2]) # Re-shape the weigths to pass to the surrogates
     pred = D*transpose(weights) # Predict the response of the system
     pred[1:numSteps, :]
 end
 
+"""
+    simSystem!(sys, params, ibrBus, busCap, totalPower, simStep, perturb, timeSim=false)
+
+Predict the response of the physical system to generate training data
+
+Inputs
+- sys: model of power system to simulate
+- params: parameters to simualte the response of the system for
+- ibrBus: Vector of buses that have converter-interfaced generation
+- busCap: Installed generation capacity for each bus
+- totalPower: Total active power generation of the system
+- simStep: Vector of timesteps the adaptive ODE sovler stepped through
+- perturb: Perturbation to the system. A loss of generation in this case.
+- timeSim=false: Flag for benchmarking computation time
+
+Outputs
+- sol: solution of the system
+- timed_exc: vector of timed excutions
+"""
 function simSystem!(sys, params, ibrBus, busCap, totalPower, simStep, perturb, timeSim=false)
     Gf=params[1]*(1-params[2]) # Grid following %
     GF=params[1]*params[2] # Grid forming %
@@ -166,6 +280,19 @@ function simSystem!(sys, params, ibrBus, busCap, totalPower, simStep, perturb, t
     end
 end
 
+"""
+    itp(pred, simStep, iterTime)
+
+Interpoalte predicted solution. Used for post-processing to calaculate RoCoF etc.
+
+Inputs
+- pred: predicted solution of the system
+- simStep: Vector of timesteps corresponding to predicetd solution
+- iterTime: Vector of timesteps we want to interpoalte at
+
+Outputs
+- interpolated_solution: Interpoalted solution
+"""
 itp(pred, simStep, iterTime) = LinearInterpolation(simStep, pred).(iterTime)
 
 function resmaplePrediction(predict, simStep, interpolateTime)
@@ -174,6 +301,17 @@ function resmaplePrediction(predict, simStep, interpolateTime)
     return output
 end 
 
+"""
+    getSettlingTime(prediction)
+
+Calculates the frequency settling time
+
+Inputs
+- prediction: Predicted solution of the system
+
+Outputs
+- settling_time: Estimated frequency settling time
+"""
 function getSettlingTime(prediction)
     mean_freq = mean(prediction, dims=1)
     reverse_freq = vec(reverse(mean_freq))
@@ -183,6 +321,22 @@ function getSettlingTime(prediction)
 return settling_time
 end
 
+"""
+    getSystemProperties(sys)
+
+Return the properties of the power system
+
+Inputs
+- sys: Power system model
+
+Outputs
+- busCap: Total generation capacity at each bus
+- totalGen: Total active power generation
+- ibrBus: Vector of buses with inverter-based resources
+- ibrGen: Vector of objects of type inverter-based resources
+- syncGen: Vector of objects of type synchronous machines 
+
+"""
 function getSystemProperties(sys)
 
     syncGen = collect(get_components(Generator, sys));

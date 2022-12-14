@@ -1,3 +1,7 @@
+#=
+This script performs a parameter sweep using a trained CTESN surrogate to show how the model might be used.
+Details about each function can be found in ctesn_functions.jl or by "?" followed by the function name in REPL 
+=#
 using Pkg
 Pkg.activate(".")
 using PowerSimulationsDynamics
@@ -26,7 +30,7 @@ Random.seed!(1234)
 file_dir = joinpath(pwd(), "src",)
 include(joinpath(file_dir, "models/system_models.jl"))
 include(joinpath(file_dir, "ctesn_functions.jl"))
-include(joinpath(file_dir, "experimentParameters.jl"))
+include(joinpath(file_dir, "experimentParameters.jl"))  # This is where all the experimental variables are defined
 
 
 sys = build_14bus()   # Build the system
